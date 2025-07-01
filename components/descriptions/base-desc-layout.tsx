@@ -1,6 +1,6 @@
 import { cn } from "@/utils";
 import type { ReactNode } from "react";
-type Props = {
+export type BaseDescriptionsLayoutType = {
 	className?: string;
 	headerClassName?: string;
 	titleClassName?: string;
@@ -9,7 +9,7 @@ type Props = {
 	tools?: ReactNode;
 	children?: ReactNode;
 };
-const ChemUIBaseCard = (props: Props) => {
+const BaseDescriptionsLayout = (props: BaseDescriptionsLayoutType) => {
 	const { className, headerClassName, titleClassName, contentClassName, title = "", children, tools } = props;
 	return (
 		<div className={cn("flex flex-col", className)}>
@@ -29,4 +29,4 @@ const ChemUIBaseCard = (props: Props) => {
 	);
 };
 
-export { ChemUIBaseCard };
+export { BaseDescriptionsLayout };
