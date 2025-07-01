@@ -1,0 +1,5 @@
+@layer components{
+    .chem-ui-card-title {
+        @apply relative flex pl-3;
+    }
+}
