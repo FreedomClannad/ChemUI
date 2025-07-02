@@ -2,6 +2,17 @@ export * from "./fetch-file";
 import { twMerge } from "tailwind-merge";
 import cn from "classnames";
 import { last } from "lodash-es";
+import { v4 as uuidv4 } from "uuid";
+import { nanoid } from "nanoid";
+// 生成8位短唯一短id
+export const getShortId = () => {
+	return nanoid(8);
+};
+
+export const getUUID = () => {
+	return uuidv4();
+};
+
 /**
  * 将svg转换为url
  * @param dom

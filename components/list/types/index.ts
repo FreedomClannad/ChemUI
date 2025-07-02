@@ -1,7 +1,6 @@
 import type { FC, ReactNode } from "react";
 import Button from "#/list/components/Button";
-import { ImgBox } from "#/list/components/img";
-import { TextBox } from "#/list/components/text-box.tsx";
+import { CSV, TextBox, ImgBox } from "#/list/components";
 export enum ChemUIListTypeEnum {
 	MOLSTAR = "3D",
 	MOLSTAR_SEQ = "3D-SEQ",
@@ -59,7 +58,7 @@ export const defaultChemUIListItemComponents: ChemUIListItemComponentMap = {
 	[ChemUIListTypeEnum.TABLE]: Button,
 	[ChemUIListTypeEnum.MOLSTAR]: Button,
 	[ChemUIListTypeEnum.KETCHER]: Button,
-	[ChemUIListTypeEnum.CSV]: Button,
+	[ChemUIListTypeEnum.CSV]: CSV,
 	[ChemUIListTypeEnum.TEXT]: TextBox,
 	[ChemUIListTypeEnum.MARKDOWN]: Button,
 	[ChemUIListTypeEnum.IMG]: ImgBox,
