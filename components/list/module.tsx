@@ -1,5 +1,5 @@
 import { Virtuoso } from "react-virtuoso";
-import cn from "classnames";
+import { cn } from "#/utils";
 import { Item } from "#/list";
 import type {
 	ChemUIListItemContentType,
@@ -10,6 +10,7 @@ import type {
 } from "#/list/types";
 import { ToolsList } from "#/list/components/tools";
 import { TextItem } from "#/list/text-item.tsx";
+import { useMemo } from "react";
 
 export type ModuleType = {
 	data: ChemUIModuleItemType;
@@ -33,10 +34,12 @@ const Module = (props: ModuleType) => {
 	const { data, options, chemUIListTools, chemUITextListTools, chemUIModuleTools = [], customScrollParent } = props;
 	const { name, files = [], text = [] } = data;
 	const toolsRender = <ToolsList<ChemUIModuleItemType> toolsList={chemUIModuleTools} dataItem={data} />;
-	const mergeList: MergeListItem[] = [
-		...files.map(item => ({ type: "file", data: item }) as const),
-		...text.map(item => ({ type: "text", data: item }) as const)
-	];
+	const mergeList: MergeListItem[] = useMemo(() => {
+		return [
+			...files.map(item => ({ type: "file", data: item }) as const),
+			...text.map(item => ({ type: "text", data: item }) as const)
+		];
+	}, [files, text]);
 	return (
 		<>
 			<div className="h-full">
@@ -51,7 +54,7 @@ const Module = (props: ModuleType) => {
 					itemContent={(index, item) => {
 						if (item.type === "file") {
 							return (
-								<div key={`${item.type}-${index}`} className={cn("chem-ui-list-top")}>
+								<div key={`${item.type}-${index}`} className={cn("py-4")}>
 									<Item item={item.data} options={options} toolsList={chemUIListTools} />
 								</div>
 							);

@@ -112,32 +112,34 @@ const ListPage = () => {
 	const { moduleItemList } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);
 	return (
-		<div className="h-full overflow-y-auto px-10" ref={rootRef}>
-			<div>输入内容</div>
-			<div className="mt-2 flex h-[400px] w-full gap-10">
-				<div className="w-1/2">
-					<textarea
-						className="h-full max-h-[400px] w-full resize-none"
-						value={textValue}
-						onChange={handleTextAreaChange}
-						placeholder="请输入JSON内容"
-						autoCapitalize="off"
-					></textarea>
+		<div className="h-[100vh]">
+			<div className="h-full overflow-y-auto px-10" ref={rootRef}>
+				<div>输入内容</div>
+				<div className="mt-2 flex h-[400px] w-full gap-10">
+					<div className="w-1/2">
+						<textarea
+							className="h-full max-h-[400px] w-full resize-none"
+							value={textValue}
+							onChange={handleTextAreaChange}
+							placeholder="请输入JSON内容"
+							autoCapitalize="off"
+						></textarea>
+					</div>
+					<div className="max-h-[380px] w-1/2 overflow-y-auto">
+						{json_value ? <ReactJson name={false} src={json_value} onChange={handleTextAreaChange} /> : <div>可视化</div>}
+					</div>
 				</div>
-				<div className="max-h-[380px] w-1/2 overflow-y-auto">
-					{json_value ? <ReactJson name={false} src={json_value} onChange={handleTextAreaChange} /> : <div>可视化</div>}
-				</div>
-			</div>
-			<div>
-				<div className="text-lg text-gray-900">可视化</div>
 				<div>
-					<List
-						customScrollParent={rootRef.current as HTMLElement}
-						dataSource={moduleItemList}
-						chemUIModuleTools={defaultModuleToolsList}
-						chemUIListTools={defaultToolsList}
-						chemUITextListTools={defaultModuleTextToolsList}
-					></List>
+					<div className="text-lg text-gray-900">可视化</div>
+					<div>
+						<List
+							customScrollParent={rootRef.current as HTMLElement}
+							dataSource={moduleItemList}
+							chemUIModuleTools={defaultModuleToolsList}
+							chemUIListTools={defaultToolsList}
+							chemUITextListTools={defaultModuleTextToolsList}
+						></List>
+					</div>
 				</div>
 			</div>
 		</div>
