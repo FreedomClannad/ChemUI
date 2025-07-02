@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@remixicon/react": "^4.6.0",
+    "antd": "^5.26.3",
     "classnames": "^2.5.1",
     "ketcher-react": "3.2",
     "lodash-es": "^4.17.21",
