@@ -44,3 +44,20 @@ export const DemoSingleImg = () => {
 		}
 	];
 };
+
+export const DemoText = [
+	{
+		name: "这是一个模块",
+		description: "这是一个模块的描述",
+		// files: Demo3DPreviewPanel,
+		files: [
+			{
+				type: ChemUIListTypeEnum.TEXT,
+				name: "这是CSV内容",
+				path: "http://localhost:5500/test2.txt",
+				format: "csv",
+				download_url: "http://localhost:5500/test2.txt"
+			}
+		]
+	}
+];

@@ -5,7 +5,7 @@ import { parseToObject } from "#/utils";
 import useList from "#/list/hooks/use-list.ts";
 import { List } from "#/list/list.tsx";
 import type { ChemUIListItemType, ChemUIModuleItemType, ChemUITextItemType, ChemUIToolsItemType } from "#/list/types";
-import { DemoImgList, DemoSingleImg } from "@/pages/list/demo.ts";
+import { DemoImgList, DemoSingleImg, DemoText } from "@/pages/list/demo.ts";
 const ListPage = () => {
 	const [textValue, setTextValue] = useState<string>("");
 	const [textValueError, setTextValueError] = useState("");
@@ -111,7 +111,7 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(DemoSingleImg()));
+		setTextValue(JSON.stringify(DemoText));
 	}, []);
 	const { moduleItemList } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);

@@ -1,3 +1,4 @@
+export * from "./fetch-file";
 import { twMerge } from "tailwind-merge";
 import cn from "classnames";
 import { last } from "lodash-es";
