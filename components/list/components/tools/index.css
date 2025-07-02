@@ -1,0 +1,13 @@
+.chem-ui-list-tools-body {
+    display: flex;
+    align-items: center;
+}
+
+.chem-ui-list-tools-item {
+    display: flex;
+    align-items: center;
+}
+
+.chem-ui-list-tools-item:not(:first-child) {
+    margin-left: 6px;
+}

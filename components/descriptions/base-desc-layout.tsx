@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import { cn } from "#/utils";
 import type { ReactNode } from "react";
 export type BaseDescriptionsLayoutType = {
 	className?: string;

@@ -1,0 +1,69 @@
+import { Virtuoso } from "react-virtuoso";
+import cn from "classnames";
+import { Item } from "#/list";
+import type {
+	ChemUIListItemContentType,
+	ChemUIListItemOptionsType,
+	ChemUIModuleItemType,
+	ChemUITextItemType,
+	ChemUIToolsItemType
+} from "#/list/types";
+import { ToolsList } from "#/list/components/tools";
+import { TextItem } from "#/list/text-item.tsx";
+
+export type ModuleType = {
+	data: ChemUIModuleItemType;
+	options?: ChemUIListItemOptionsType;
+	chemUIListTools?: ChemUIToolsItemType<ChemUIListItemContentType>[];
+	chemUITextListTools?: ChemUIToolsItemType<ChemUITextItemType>[];
+	chemUIModuleTools?: ChemUIToolsItemType<ChemUIModuleItemType>[];
+	customScrollParent?: HTMLElement;
+};
+
+type MergeListItem =
+	| {
+			type: "file";
+			data: ChemUIListItemContentType;
+	  }
+	| {
+			type: "text";
+			data: ChemUITextItemType;
+	  };
+const Module = (props: ModuleType) => {
+	const { data, options, chemUIListTools, chemUITextListTools, chemUIModuleTools = [], customScrollParent } = props;
+	const { name, files = [], text = [] } = data;
+	const toolsRender = <ToolsList<ChemUIModuleItemType> toolsList={chemUIModuleTools} dataItem={data} />;
+	const mergeList: MergeListItem[] = [
+		...files.map(item => ({ type: "file", data: item }) as const),
+		...text.map(item => ({ type: "text", data: item }) as const)
+	];
+	return (
+		<>
+			<div className="h-full">
+				<div className="flex h-8 w-full items-center justify-between border-b border-blue-500">
+					<span className="inline-block h-full rounded-sm bg-blue-500 px-4 py-1 text-base text-white">{name}</span>
+					<div>{toolsRender}</div>
+				</div>
+
+				<Virtuoso
+					customScrollParent={customScrollParent}
+					data={mergeList}
+					itemContent={(index, item) => {
+						if (item.type === "file") {
+							return (
+								<div key={`${item.type}-${index}`} className={cn("chem-ui-list-top")}>
+									<Item item={item.data} options={options} toolsList={chemUIListTools} />
+								</div>
+							);
+						} else {
+							return <div key={`text-list-${index}`}>{<TextItem data={item.data} toolsList={chemUITextListTools} />}</div>;
+						}
+					}}
+					style={{ height: "auto" }}
+				/>
+			</div>
+		</>
+	);
+};
+
+export { Module };

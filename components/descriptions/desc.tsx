@@ -1,5 +1,5 @@
-import { BaseDescriptionsLayout, type BaseDescriptionsLayoutType } from "@/descriptions/base-desc-layout.tsx";
-import { cn } from "@/utils";
+import { BaseDescriptionsLayout, type BaseDescriptionsLayoutType } from "#/descriptions/base-desc-layout.tsx";
+import { cn } from "#/utils";
 
 export type DescriptionsType = BaseDescriptionsLayoutType & {
 	description?: string;

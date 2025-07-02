@@ -15,7 +15,8 @@ export default defineConfig(() => {
 		define,
 		resolve: {
 			alias: {
-				"@": resolve(__dirname, "./components")
+				"#": resolve(__dirname, "./components"),
+				"@": resolve(__dirname, "./src")
 			}
 		},
 		plugins: [react(), dts({ include: ["components"], tsconfigPath: "./tsconfig.build.json" })],
