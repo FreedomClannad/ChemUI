@@ -1,0 +1,55 @@
+.chem-ui-base-table {
+    height: 100%;
+}
+
+.chem-ui-base-table .ant-table-cell {
+    /*padding: 5px 5px !important;*/
+}
+
+.chem-ui-base-table .ant-table-thead .ant-table-cell {
+    font-size: 14px !important;
+}
+
+.chem-ui-base-table .ant-table-body {
+    scrollbar-width: thin;
+    scrollbar-color: #eaeaea transparent;
+    scrollbar-gutter: stable;
+}
+
+.chem-ui-base-table .ant-table-thead {
+    background: #fafafa;
+}
+
+.chem-ui-base-table .ant-table-thead .action {
+    background: transparent;
+    z-index: -1;
+}
+
+.chem-ui-base-table .ant-table-thead .action:after {
+    box-shadow: none;
+}
+
+.chem-ui-base-table .ant-table-body {
+    overflow: auto !important;
+}
+
+.chem-ui-base-table .ant-table-container:after {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0) !important;
+}
+.chem-ui-base-table .ant-table-cell {
+    padding: 16px 40px !important;
+}
+.chem-ui-base-table .ant-table-thead .ant-table-cell {
+    white-space: nowrap;
+}
+
+.chem-ui-base-table .ant-spin-nested-loading {
+    height: 100%;
+}
+.chem-ui-base-table .ant-spin-container {
+    height: 100%;
+}
+
+.chem-ui-base-table .ant-table {
+    height: 100%;
+}

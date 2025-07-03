@@ -276,3 +276,40 @@ export const Demo2D = [
 		]
 	}
 ];
+
+export const DemoTable = [
+	{
+		name: "这是一个模块",
+		description: "这是一个模块的描述",
+		files: [
+			{
+				type: ChemUIListTypeEnum.TABLE,
+				name: "这是表格内容",
+				path: "http://localhost:5500/tabs-table.json",
+				format: "img",
+				download_url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+			},
+			{
+				type: ChemUIListTypeEnum.TABLE,
+				name: "这是表格内容",
+				path: "http://localhost:5500/base-table.json",
+				format: "img",
+				download_url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+			},
+			{
+				type: ChemUIListTypeEnum.TABLE,
+				name: "这是表格内容",
+				path: "http://localhost:5500/molTabsTable.json",
+				format: "img",
+				download_url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+			},
+			{
+				type: ChemUIListTypeEnum.TABLE,
+				name: "这是表格内容",
+				path: "http://localhost:5500/molBaseView.json",
+				format: "img",
+				download_url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+			}
+		]
+	}
+];

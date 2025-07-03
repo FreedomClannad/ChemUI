@@ -11,7 +11,7 @@ type Props = {
 	data: BaseTableItem[];
 };
 
-const BaseTable = (props: Props) => {
+const ListBaseTable = (props: Props) => {
 	const { data } = props;
 	const dataLength = useMemo(() => data.length, [data]);
 	return (
@@ -47,4 +47,4 @@ const BaseTable = (props: Props) => {
 	);
 };
 
-export { BaseTable };
+export { ListBaseTable };

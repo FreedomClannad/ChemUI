@@ -1,0 +1,18 @@
+.chem-ui-top-layout-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 20px;
+    height: 100%;
+}
+
+.cutl-top {
+    flex: 1;
+    position: relative;
+}
+
+.cutl-bottom {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}

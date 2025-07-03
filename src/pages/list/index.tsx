@@ -14,6 +14,7 @@ import {
 	DemoImgList,
 	DemoMarkdown,
 	DemoSingleImg,
+	DemoTable,
 	DemoText
 } from "@/pages/list/demo.ts";
 const ListPage = () => {
@@ -121,7 +122,7 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(Demo2D));
+		setTextValue(JSON.stringify(DemoTable));
 	}, []);
 	const { moduleItemList } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);

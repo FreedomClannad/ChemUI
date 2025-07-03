@@ -1,7 +1,7 @@
 import type { ChemUIListItemContentType } from "#/list/types";
-import { BaseTable, type BaseTableItem } from "#/list/components/base-table.tsx";
 import { useMemo } from "react";
 import { getFileNameFromUrl } from "#/utils";
+import { type BaseTableItem, ListBaseTable } from "#/list";
 
 const OtherComponent = (props: ChemUIListItemContentType) => {
 	const { path } = props;
@@ -27,7 +27,7 @@ const OtherComponent = (props: ChemUIListItemContentType) => {
 	}, [path]);
 	return (
 		<div>
-			<BaseTable data={data} />
+			<ListBaseTable data={data} />
 		</div>
 	);
 };

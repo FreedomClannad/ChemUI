@@ -11,7 +11,8 @@ import {
 	MolstarPanelPicker,
 	MolstarImageSingle,
 	MolstarImageMulti,
-	MolstarImagePicker
+	MolstarImagePicker,
+	ListTable
 } from "#/list/components";
 import { Markdown } from "../components/markdown";
 import { Ketcher } from "#/list/components/ketcher";
@@ -69,7 +70,7 @@ export type ChemUIListItemComponentMap = {
 };
 
 export const defaultChemUIListItemComponents: ChemUIListItemComponentMap = {
-	[ChemUIListTypeEnum.TABLE]: Button,
+	[ChemUIListTypeEnum.TABLE]: ListTable,
 	[ChemUIListTypeEnum.MOLSTAR]: Molstar,
 	[ChemUIListTypeEnum.KETCHER]: Ketcher,
 	[ChemUIListTypeEnum.CSV]: CSV,

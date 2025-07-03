@@ -1,0 +1,18 @@
+.chem-ui-right-layout-container {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    height: 100%;
+}
+
+.curl-left {
+    flex: 1;
+    width: 50%;
+    position: relative;
+}
+
+.curl-right {
+    flex: 1;
+    width: 50%;
+    position: relative;
+}
