@@ -1,6 +1,18 @@
 import type { FC, ReactNode } from "react";
 import Button from "#/list/components/Button";
-import { CSV, TextBox, ImgBox } from "#/list/components";
+import {
+	CSV,
+	TextBox,
+	ImgBox,
+	Molstar,
+	MolstarSeq,
+	MolstarPanelSingle,
+	MolstarPanelMulti,
+	MolstarPanelPicker,
+	MolstarImageSingle,
+	MolstarImageMulti,
+	MolstarImagePicker
+} from "#/list/components";
 export enum ChemUIListTypeEnum {
 	MOLSTAR = "3D",
 	MOLSTAR_SEQ = "3D-SEQ",
@@ -56,19 +68,19 @@ export type ChemUIListItemComponentMap = {
 
 export const defaultChemUIListItemComponents: ChemUIListItemComponentMap = {
 	[ChemUIListTypeEnum.TABLE]: Button,
-	[ChemUIListTypeEnum.MOLSTAR]: Button,
+	[ChemUIListTypeEnum.MOLSTAR]: Molstar,
 	[ChemUIListTypeEnum.KETCHER]: Button,
 	[ChemUIListTypeEnum.CSV]: CSV,
 	[ChemUIListTypeEnum.TEXT]: TextBox,
 	[ChemUIListTypeEnum.MARKDOWN]: Button,
 	[ChemUIListTypeEnum.IMG]: ImgBox,
-	[ChemUIListTypeEnum.MOLSTAR_SEQ]: Button,
-	[ChemUIListTypeEnum.MOLSTAR_PANEL_SINGLE]: Button,
-	[ChemUIListTypeEnum.MOLSTAR_PANEL_MULTI]: Button,
-	[ChemUIListTypeEnum.MOLSTAR_PANEL_PICKER]: Button,
-	[ChemUIListTypeEnum.MOLSTAR_IMAGE_SINGLE]: Button,
-	[ChemUIListTypeEnum.MOLSTAR_IMAGE_MULTI]: Button,
-	[ChemUIListTypeEnum.MOLSTAR_IMAGE_PICKER]: Button
+	[ChemUIListTypeEnum.MOLSTAR_SEQ]: MolstarSeq,
+	[ChemUIListTypeEnum.MOLSTAR_PANEL_SINGLE]: MolstarPanelSingle,
+	[ChemUIListTypeEnum.MOLSTAR_PANEL_MULTI]: MolstarPanelMulti,
+	[ChemUIListTypeEnum.MOLSTAR_PANEL_PICKER]: MolstarPanelPicker,
+	[ChemUIListTypeEnum.MOLSTAR_IMAGE_SINGLE]: MolstarImageSingle,
+	[ChemUIListTypeEnum.MOLSTAR_IMAGE_MULTI]: MolstarImageMulti,
+	[ChemUIListTypeEnum.MOLSTAR_IMAGE_PICKER]: MolstarImagePicker
 };
 
 export type ChemUIToolsItemType<T> = {
@@ -89,3 +101,8 @@ export type ChemUIAppItemType = {
 	visual_data: ChemUIModuleItemType[];
 	download_url?: string;
 };
+
+export enum ModeEnum {
+	"SINGLE" = "Single",
+	"MULTI" = "Multi"
+}

@@ -64,240 +64,175 @@ export const DemoText = [
 
 export const DemoCSV = [
 	{
-		visual_data: [
+		name: "这是一个模块",
+		description: "这是一个模块的描述",
+		// files: Demo3DPreviewPanel,
+		files: [
 			{
-				name: "Search Chembl",
-				files: [
+				name: "Target Activities",
+				path: "http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-04-24/634bbee1-c7cf-4611-9be3-5bc359cd85ce.csv",
+				type: "CSV",
+				format: "csv",
+				download_url:
+					"http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-04-24/634bbee1-c7cf-4611-9be3-5bc359cd85ce.csv"
+			}
+		]
+	}
+];
+
+export const Demo3DPreview = [
+	{
+		name: "这是一个模块",
+		description: "这是一个模块的描述",
+		files: [
+			{
+				type: ChemUIListTypeEnum.MOLSTAR_IMAGE_MULTI,
+				name: "这是3D内容",
+				path: [
 					{
-						name: "Target Activities",
-						path: "http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-04-24/634bbee1-c7cf-4611-9be3-5bc359cd85ce.csv",
-						type: "CSV",
-						format: "csv",
-						download_url:
-							"http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-04-24/634bbee1-c7cf-4611-9be3-5bc359cd85ce.csv"
+						name: "测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1测试名字1",
+						path: "http://localhost:5500/pdb/1.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字2",
+						path: "http://localhost:5500/pdb/2.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字3",
+						path: "http://localhost:5500/pdb/3.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字4",
+						path: "http://localhost:5500/pdb/4.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字5",
+						path: "http://localhost:5500/pdb/5.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字6",
+						path: "http://localhost:5500/pdb/6.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字7",
+						path: "http://localhost:5500/pdb/7.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字8",
+						path: "http://localhost:5500/pdb/8.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字9",
+						path: "http://localhost:5500/pdb/9.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字10",
+						path: "http://localhost:5500/pdb/10.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字11",
+						path: "http://localhost:5500/pdb/1.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字12",
+						path: "http://localhost:5500/pdb/2.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字13",
+						path: "http://localhost:5500/pdb/3.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字14",
+						path: "http://localhost:5500/pdb/4.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字15",
+						path: "http://localhost:5500/pdb/5.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
+					},
+					{
+						name: "测试名字16",
+						path: "http://localhost:5500/pdb/6.pdb",
+						format: "pdb",
+						smiles: "https://patmap.alphama.com.cn/prod-api/profile/csr/2025/06/06/ce254b35-e580-446f-8632-b66eadb4f894.svg"
 					}
 				],
-				text: [
-					{
-						name: "Target Activities",
-						content: [
-							{
-								"Target Name": "Melanocortin receptor 2",
-								"Activity Type": "pKb",
-								Relation: "=",
-								Value: "9.5",
-								Units: null,
-								"Assay Description":
-									"Antagonist activity at human MC2R expressed in CHO-K1 cells membrane assessed as cAMP accumulation preincubated for 30 mins followed by ACTH (1-24) addition and measured after 30 mins by HTRF based assay",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 2",
-								"Activity Type": "Kb",
-								Relation: "=",
-								Value: "0.34",
-								Units: "nM",
-								"Assay Description":
-									"Antagonist activity at human MC2R expressed in CHO-K1 cells membrane assessed as cAMP accumulation preincubated for 30 mins followed by ACTH (1-24) addition and measured after 30 mins by HTRF based assay",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "pKb",
-								Relation: "=",
-								Value: "9.6",
-								Units: null,
-								"Assay Description":
-									"Antagonist activity at rat MC2R expressed in CHO-K1 cells membrane assessed as cAMP accumulation preincubated for 30 mins followed by ACTH (1-24) addition and measured after 30 mins by HTRF based assay",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Kb",
-								Relation: "=",
-								Value: "0.23",
-								Units: "nM",
-								"Assay Description":
-									"Antagonist activity at rat MC2R expressed in CHO-K1 cells membrane assessed as cAMP accumulation preincubated for 30 mins followed by ACTH (1-24) addition and measured after 30 mins by HTRF based assay",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 2",
-								"Activity Type": "Ki",
-								Relation: "=",
-								Value: "1.995",
-								Units: "nM",
-								"Assay Description":
-									"Displacement of [[125I]-Tyr23]-ACTH (1-39) from human MC2R incubated for 1.5 hrs by Topcount scintillation counting method",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 2",
-								"Activity Type": "Ki",
-								Relation: "=",
-								Value: "2.1",
-								Units: "nM",
-								"Assay Description":
-									"Displacement of [[125I]-Tyr23]-ACTH (1-39) from human MC2R incubated for 1.5 hrs by Topcount scintillation counting method",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "pKb",
-								Relation: "=",
-								Value: "9.6",
-								Units: null,
-								"Assay Description":
-									"Antagonist activity at dog MC2R assessed as reduction in ACTH (1-24) stimulated cAMP accumulation",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Kb",
-								Relation: "=",
-								Value: "0.25",
-								Units: "nM",
-								"Assay Description":
-									"Antagonist activity at dog MC2R assessed as reduction in ACTH (1-24) stimulated cAMP accumulation",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 1",
-								"Activity Type": "IC50",
-								Relation: ">",
-								Value: "10000.0",
-								Units: "nM",
-								"Assay Description": "Inhibition of human MC1R",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 3",
-								"Activity Type": "IC50",
-								Relation: ">",
-								Value: "10000.0",
-								Units: "nM",
-								"Assay Description": "Inhibition of human MC3R",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 4",
-								"Activity Type": "IC50",
-								Relation: ">",
-								Value: "10000.0",
-								Units: "nM",
-								"Assay Description": "Inhibition of human MC4R",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Melanocortin receptor 5",
-								"Activity Type": "IC50",
-								Relation: ">",
-								Value: "10000.0",
-								Units: "nM",
-								"Assay Description": "Inhibition of human MC5R",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Serotonin 1b (5-HT1b) receptor",
-								"Activity Type": "Inhibition",
-								Relation: ">",
-								Value: "70.0",
-								Units: "%",
-								"Assay Description": "Inhibition of 5-HT1B (unknown origin) at 10 uM relative to control",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Voltage-gated L-type calcium channel",
-								"Activity Type": "Inhibition",
-								Relation: ">",
-								Value: "70.0",
-								Units: "%",
-								"Assay Description": "Inhibition of L-type calcium channel (unknown origin) at 10 uM relative to control",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Inhibition",
-								Relation: ">",
-								Value: "70.0",
-								Units: "%",
-								"Assay Description": "Inhibition of sodium channel (unknown origin) at 10 uM relative to control",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Serotonin 1b (5-HT1b) receptor",
-								"Activity Type": "IC50",
-								Relation: "=",
-								Value: "750.0",
-								Units: "nM",
-								"Assay Description": "Antagonist activity at 5-HT1B (unknown origin)",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Ratio IC50",
-								Relation: ">",
-								Value: "2500.0",
-								Units: null,
-								"Assay Description": "Selectivity ratio of IC50 for 5-HT1B (unknown origin) to IC50 for human MC2R",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Activity",
-								Relation: "=",
-								Value: "44.0",
-								Units: "%",
-								"Assay Description":
-									"In vivo antagonist activity at MC2R in Sprague-Dawley rat assessed as reduction in ACTH-stimulated corticosterone secretion at 3 mg/kg, po administered as single dose and measured after 1 hr by LC-MS/MS analysis",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Activity",
-								Relation: "=",
-								Value: "88.0",
-								Units: "%",
-								"Assay Description":
-									"In vivo antagonist activity at MC2R in Sprague-Dawley rat assessed as reduction in ACTH-stimulated corticosterone secretion at 30 mg/kg, po administered as single dose and measured after 1 hr by LC-MS/MS analysis",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Activity",
-								Relation: "=",
-								Value: "36.0",
-								Units: "%",
-								"Assay Description":
-									"In vivo antagonist activity at MC2R in Sprague-Dawley rat assessed as reduction in ACTH-stimulated corticosterone secretion at 3 mg/kg, po administered as single dose and measured after 4 hrs by LC-MS/MS analysis",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Activity",
-								Relation: "=",
-								Value: "84.0",
-								Units: "%",
-								"Assay Description":
-									"In vivo antagonist activity at MC2R in Sprague-Dawley rat assessed as reduction in ACTH-stimulated corticosterone secretion at 30 mg/kg, po administered as single dose and measured after 4 hrs by LC-MS/MS analysis",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							},
-							{
-								"Target Name": "Unchecked",
-								"Activity Type": "Activity",
-								Relation: null,
-								Value: null,
-								Units: null,
-								"Assay Description":
-									"In vivo antagonist activity at MC2R in Sprague-Dawley rat assessed as reduction in ACTH-stimulated corticosterone secretion at 3 to 30 mg/kg, po administered as single dose and measured after 24 to 48 hrs by LC-MS/MS analysis",
-								"DOI/Patent ID": "DOI: 10.1021/acsmedchemlett.3c00514"
-							}
-						]
-					}
-				]
+				format: "pdb",
+				description:
+					"中华人民共和国（the People's Republic of China），简称“中国”，成立于1949年10月1日 [1]，位于亚洲东部，太平洋西岸 [2]，是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家 [3]，以五星红旗为国旗 [4]、《义勇军进行曲》为国歌 [181]，国徽中间是五星照耀下的天安门，周围是谷穗和齿轮 [6] [164]，通用语言文字是普通话和规范汉字 [7]，首都北京 [8]，是一个以汉族为主体、56个民族共同组成的统一的多民族国家。\n" +
+					"中国陆地面积约960万平方千米，东部和南部大陆海岸线1.8万多千米，海域总面积约473万平方千米 [2]。海域分布有大小岛屿7600多个，其中台湾岛最大，面积35798平方千米 [2]。中国同14国接壤，与8国海上相邻。省级行政区划为23个省、5个自治区、4个直辖市、2个特别行政区。 [2]\n" +
+					"中国是世界上历史最悠久的国家之一，有着光辉灿烂的文化和光荣的革命传统 [3]，世界遗产数量全球领先 [9]。1949年新中国成立后，进入社会主义革命和建设时期，1956年实现向社会主义过渡，此后社会主义建设在探索中曲折发展 [10]。“文化大革命”结束后实行改革开放，沿着中国特色社会主义道路，集中力量进行社会主义现代化建设 [3]。经过长期努力，中国特色社会主义进入了新时代。 [11] [135]\n" +
+					"中国是世界上人口最多的发展中国家，国土面积居世界第三位，是世界第二大经济体，并持续成为世界经济增长最大的贡献者，2020年经济总量突破100万亿元 [12-13] [124]。中国坚持独立自主的和平外交政策，是联合国安全理事会常任理事国，也是许多国际组织的重要成员，被认为是潜在超级大国之一。 "
 			}
-		],
-		download_url:
-			"http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-04-24/b4cc2451-c583-45ed-b7da-8f303d36445b.zip"
+		]
+	}
+];
+
+export const Demo3DSEQ = [
+	{
+		name: "这是一个模块",
+		description: "这是一个模块的描述",
+		files: [
+			{
+				type: ChemUIListTypeEnum.MOLSTAR_SEQ,
+				name: "这是3D内容",
+				path: "http://localhost:5500/proteins.pdb",
+				format: "pdb",
+				description:
+					"中华人民共和国（the People's Republic of China），简称“中国”，成立于1949年10月1日 [1]，位于亚洲东部，太平洋西岸 [2]，是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家 [3]，以五星红旗为国旗 [4]、《义勇军进行曲》为国歌 [181]，国徽中间是五星照耀下的天安门，周围是谷穗和齿轮 [6] [164]，通用语言文字是普通话和规范汉字 [7]，首都北京 [8]，是一个以汉族为主体、56个民族共同组成的统一的多民族国家。\n" +
+					"中国陆地面积约960万平方千米，东部和南部大陆海岸线1.8万多千米，海域总面积约473万平方千米 [2]。海域分布有大小岛屿7600多个，其中台湾岛最大，面积35798平方千米 [2]。中国同14国接壤，与8国海上相邻。省级行政区划为23个省、5个自治区、4个直辖市、2个特别行政区。 [2]\n" +
+					"中国是世界上历史最悠久的国家之一，有着光辉灿烂的文化和光荣的革命传统 [3]，世界遗产数量全球领先 [9]。1949年新中国成立后，进入社会主义革命和建设时期，1956年实现向社会主义过渡，此后社会主义建设在探索中曲折发展 [10]。“文化大革命”结束后实行改革开放，沿着中国特色社会主义道路，集中力量进行社会主义现代化建设 [3]。经过长期努力，中国特色社会主义进入了新时代。 [11] [135]\n" +
+					"中国是世界上人口最多的发展中国家，国土面积居世界第三位，是世界第二大经济体，并持续成为世界经济增长最大的贡献者，2020年经济总量突破100万亿元 [12-13] [124]。中国坚持独立自主的和平外交政策，是联合国安全理事会常任理事国，也是许多国际组织的重要成员，被认为是潜在超级大国之一。 "
+			}
+		]
+	}
+];
+
+export const Demo3D = [
+	{
+		name: "这是一个模块",
+		description: "这是一个模块的描述",
+		files: [
+			{
+				type: ChemUIListTypeEnum.MOLSTAR,
+				name: "这是3D内容",
+				path: "http://localhost:5500/proteins.pdb",
+				format: "pdb",
+				description:
+					"中华人民共和国（the People's Republic of China），简称“中国”，成立于1949年10月1日 [1]，位于亚洲东部，太平洋西岸 [2]，是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家 [3]，以五星红旗为国旗 [4]、《义勇军进行曲》为国歌 [181]，国徽中间是五星照耀下的天安门，周围是谷穗和齿轮 [6] [164]，通用语言文字是普通话和规范汉字 [7]，首都北京 [8]，是一个以汉族为主体、56个民族共同组成的统一的多民族国家。\n" +
+					"中国陆地面积约960万平方千米，东部和南部大陆海岸线1.8万多千米，海域总面积约473万平方千米 [2]。海域分布有大小岛屿7600多个，其中台湾岛最大，面积35798平方千米 [2]。中国同14国接壤，与8国海上相邻。省级行政区划为23个省、5个自治区、4个直辖市、2个特别行政区。 [2]\n" +
+					"中国是世界上历史最悠久的国家之一，有着光辉灿烂的文化和光荣的革命传统 [3]，世界遗产数量全球领先 [9]。1949年新中国成立后，进入社会主义革命和建设时期，1956年实现向社会主义过渡，此后社会主义建设在探索中曲折发展 [10]。“文化大革命”结束后实行改革开放，沿着中国特色社会主义道路，集中力量进行社会主义现代化建设 [3]。经过长期努力，中国特色社会主义进入了新时代。 [11] [135]\n" +
+					"中国是世界上人口最多的发展中国家，国土面积居世界第三位，是世界第二大经济体，并持续成为世界经济增长最大的贡献者，2020年经济总量突破100万亿元 [12-13] [124]。中国坚持独立自主的和平外交政策，是联合国安全理事会常任理事国，也是许多国际组织的重要成员，被认为是潜在超级大国之一。 "
+			}
+		]
 	}
 ];

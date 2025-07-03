@@ -1,0 +1,9 @@
+.alm-image-preview .rc-image-preview-img {
+    background: #FFF;
+}
+
+.rc-image-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

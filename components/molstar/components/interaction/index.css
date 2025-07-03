@@ -1,0 +1,78 @@
+.interaction-box {
+    position: absolute;
+    z-index: 5;
+    left: 5px;
+    bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 43%;
+}
+
+.interaction-label {
+    width: 180px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.interaction-label-disable {
+    cursor: not-allowed;
+}
+.interaction-dots-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.HydrogenBond {
+    background: #2B83BA;
+}
+
+.Hydrophobic {
+    background: #808080;
+}
+
+.HalogenBond {
+    background: #40FFBF;
+}
+
+.Ionic {
+    background: #F0C814;
+}
+
+.MetalCoordination {
+    background: #8C4099;
+}
+
+.CationPi {
+    background: #FF8000;
+}
+
+.PiStacking {
+    background: #8CB366;
+}
+
+.WeakHydrogenBond {
+    background: #C5DDEC;
+}
+
+.interaction-dots-box div:not(:first-child) {
+    margin-left: 5px;
+}
+
+.interaction-dots {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+}
+
+.interaction-name {
+    /*margin-left: 5px;*/
+    /*color: #000000;*/
+}
+
+.interaction-name-disable {
+    color: #8C8C8C;
+}
