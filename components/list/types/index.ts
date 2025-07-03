@@ -13,6 +13,7 @@ import {
 	MolstarImageMulti,
 	MolstarImagePicker
 } from "#/list/components";
+import { Markdown } from "../components/markdown";
 export enum ChemUIListTypeEnum {
 	MOLSTAR = "3D",
 	MOLSTAR_SEQ = "3D-SEQ",
@@ -72,7 +73,7 @@ export const defaultChemUIListItemComponents: ChemUIListItemComponentMap = {
 	[ChemUIListTypeEnum.KETCHER]: Button,
 	[ChemUIListTypeEnum.CSV]: CSV,
 	[ChemUIListTypeEnum.TEXT]: TextBox,
-	[ChemUIListTypeEnum.MARKDOWN]: Button,
+	[ChemUIListTypeEnum.MARKDOWN]: Markdown,
 	[ChemUIListTypeEnum.IMG]: ImgBox,
 	[ChemUIListTypeEnum.MOLSTAR_SEQ]: MolstarSeq,
 	[ChemUIListTypeEnum.MOLSTAR_PANEL_SINGLE]: MolstarPanelSingle,

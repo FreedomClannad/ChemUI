@@ -5,7 +5,16 @@ import { parseToObject } from "#/utils";
 import useList from "#/list/hooks/use-list.ts";
 import { List } from "#/list/list.tsx";
 import type { ChemUIListItemType, ChemUIModuleItemType, ChemUITextItemType, ChemUIToolsItemType } from "#/list/types";
-import { Demo3D, Demo3DPreview, Demo3DSEQ, DemoCSV, DemoImgList, DemoSingleImg, DemoText } from "@/pages/list/demo.ts";
+import {
+	Demo3D,
+	Demo3DPreview,
+	Demo3DSEQ,
+	DemoCSV,
+	DemoImgList,
+	DemoMarkdown,
+	DemoSingleImg,
+	DemoText
+} from "@/pages/list/demo.ts";
 const ListPage = () => {
 	const [textValue, setTextValue] = useState<string>("");
 	const [textValueError, setTextValueError] = useState("");
@@ -111,7 +120,7 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(Demo3D));
+		setTextValue(JSON.stringify(DemoMarkdown));
 	}, []);
 	const { moduleItemList } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);
