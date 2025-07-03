@@ -6,6 +6,7 @@ import useList from "#/list/hooks/use-list.ts";
 import { List } from "#/list/list.tsx";
 import type { ChemUIListItemType, ChemUIModuleItemType, ChemUITextItemType, ChemUIToolsItemType } from "#/list/types";
 import {
+	Demo2D,
 	Demo3D,
 	Demo3DPreview,
 	Demo3DSEQ,
@@ -120,7 +121,7 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(DemoMarkdown));
+		setTextValue(JSON.stringify(Demo2D));
 	}, []);
 	const { moduleItemList } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);
