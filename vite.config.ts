@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "path";
 import dts from "vite-plugin-dts";
-
+import { codeInspectorPlugin } from "code-inspector-plugin";
 // https://vite.dev/config/
 const nodeEnv = process.env.NODE_ENV === "production" ? '"production"' : '"development"';
 export default defineConfig(() => {
@@ -19,7 +19,13 @@ export default defineConfig(() => {
 				"@": resolve(__dirname, "./src")
 			}
 		},
-		plugins: [react(), dts({ include: ["components"], tsconfigPath: "./tsconfig.build.json" })],
+		plugins: [
+			react(),
+			dts({ include: ["components"], tsconfigPath: "./tsconfig.build.json" }),
+			codeInspectorPlugin({
+				bundler: "vite"
+			})
+		],
 		server: {
 			proxy: {
 				"/v2": {

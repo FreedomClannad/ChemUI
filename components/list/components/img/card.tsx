@@ -5,7 +5,7 @@ const Card = (props: ChemUIListFileType) => {
 	const { name, path } = props;
 	return (
 		<div className="w-[200px] rounded-lg border border-solid border-gray-300 pb-1.5">
-			<Image src={path} alt="image" className="min-h-[180px] rounded-t-lg" />
+			<Image src={path} alt="image" className="min-h-[180px] rounded-t-lg" preview={{ maskClassName: "rounded-t-[6px]" }} />
 			<div className="overflow-hidden text-ellipsis whitespace-nowrap px-[10px] text-center text-[14px] leading-[16px] text-[#4D4D4D]">
 				<span>{name}</span>
 			</div>
