@@ -6,9 +6,9 @@ import type {
 	ChemUIListItemComponentMap,
 	ChemUIListItemContentType,
 	ChemUIListItemOptionsType,
+	ChemUIListToolsType,
 	ChemUIModuleItemType,
-	ChemUITextItemType,
-	ChemUIToolsItemType
+	ChemUITextItemType
 } from "#/list/types";
 import { ToolsList } from "#/list/components/tools";
 import { TextItem } from "#/list/text-item.tsx";
@@ -17,12 +17,10 @@ import { useMemo } from "react";
 export type ModuleType = {
 	data: ChemUIModuleItemType;
 	options?: ChemUIListItemOptionsType;
-	chemUIListTools?: ChemUIToolsItemType<ChemUIListItemContentType>[];
-	chemUITextListTools?: ChemUIToolsItemType<ChemUITextItemType>[];
-	chemUIModuleTools?: ChemUIToolsItemType<ChemUIModuleItemType>[];
 	customScrollParent?: HTMLElement;
 	config?: ChemUIListConfigType;
 	renderComponents?: ChemUIListItemComponentMap;
+	toolsData?: ChemUIListToolsType;
 };
 
 type MergeListItem =
@@ -35,18 +33,14 @@ type MergeListItem =
 			data: ChemUITextItemType;
 	  };
 const Module = (props: ModuleType) => {
-	const {
-		data,
-		options,
-		chemUIListTools,
-		chemUITextListTools,
-		chemUIModuleTools = [],
-		customScrollParent,
-		config,
-		renderComponents
-	} = props;
+	const { data, options, customScrollParent, config, renderComponents, toolsData } = props;
 	const { name, files = [], text = [] } = data;
-	const toolsRender = <ToolsList<ChemUIModuleItemType> toolsList={chemUIModuleTools} dataItem={data} />;
+	// const toolsRender = <ToolsList<ChemUIModuleItemType> toolsList={chemUIModuleTools} dataItem={data} />;
+	const toolsRender = useMemo(() => {
+		if (toolsData && toolsData?.moduleTools) {
+			return <ToolsList<ChemUIModuleItemType> toolsList={toolsData?.moduleTools} dataItem={data} />;
+		}
+	}, [toolsData, toolsData?.moduleTools]);
 	const mergeList: MergeListItem[] = useMemo(() => {
 		return [
 			...files.map(item => ({ type: "file", data: item }) as const),
@@ -73,13 +67,13 @@ const Module = (props: ModuleType) => {
 										item={item.data}
 										renderComponents={renderComponents}
 										options={options}
-										toolsList={chemUIListTools}
+										toolsList={toolsData?.itemTools}
 										config={config}
 									/>
 								</div>
 							);
 						} else {
-							return <div key={`text-list-${index}`}>{<TextItem data={item.data} toolsList={chemUITextListTools} />}</div>;
+							return <div key={`text-list-${index}`}>{<TextItem data={item.data} toolsList={toolsData?.textItemTools} />}</div>;
 						}
 					}}
 					style={{ height: "auto" }}

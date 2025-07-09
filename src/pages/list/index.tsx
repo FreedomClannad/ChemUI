@@ -4,13 +4,7 @@ import { useDebounce } from "ahooks";
 import { parseToObject } from "#/utils";
 import useList from "#/list/hooks/use-list.ts";
 import { List } from "#/list/list.tsx";
-import type {
-	ChemUIListItemType,
-	ChemUIModuleItemType,
-	ChemUITextItemType,
-	ChemUIToolsItemType,
-	CSVConfigType
-} from "#/list/types";
+import type { ChemUIListItemType, ChemUIModuleItemType, ChemUITextItemType, CSVConfigType } from "#/list/types";
 import {
 	Demo2D,
 	Demo3D,
@@ -24,90 +18,16 @@ import {
 	DemoTable,
 	DemoText
 } from "@/pages/list/demo.ts";
+import { defaultDownloadTools } from "#/list/default";
 type MyConfig = {
 	test: string;
 } & CSVConfigType;
 const ListPage = () => {
 	const [textValue, setTextValue] = useState<string>("");
 	const [textValueError, setTextValueError] = useState("");
-
-	// 这里可以继续往外抛出，将这个值作为外部传导。
-	const defaultToolsList: ChemUIToolsItemType<ChemUIListItemType>[] = [
-		{
-			icon: (item: ChemUIListItemType) => {
-				if (!item.download_url) return;
-				return (
-					<div className="flex items-center">
-						<div>下载</div>
-						<span className="ml-1">download</span>
-					</div>
-				);
-			},
-
-			onClick: (item: ChemUIListItemType) => {
-				// if (item.download_url) downloadFile(item.download_url, { useBlob: true, onError: (err: Error) => console.error(err) });
-				console.log(item);
-				console.log("下载");
-			}
-		},
-		{
-			icon: () => "测试按钮1",
-			onClick: (item: ChemUIListItemType) => {
-				console.log("下载2", item);
-			}
-		},
-		{
-			icon: () => "测试按钮2",
-			onClick: (item: ChemUIListItemType) => {
-				console.log("下载3", item);
-			}
-		},
-		{
-			icon: () => "测试按钮3",
-			onClick: (item: ChemUIListItemType) => {
-				console.log("下载4", item);
-			}
-		}
-	];
-
-	const defaultModuleToolsList: ChemUIToolsItemType<ChemUIModuleItemType>[] = [
-		{
-			icon: (item: ChemUIModuleItemType) => {
-				if (!item.download_url) return;
-				return (
-					<div className="flex items-center">
-						<div>下载</div>
-					</div>
-				);
-			},
-
-			onClick: (item: ChemUIModuleItemType) => {
-				// if (item.download_url) downloadFile(item.download_url, { useBlob: true, onError: (err: Error) => console.error(err) });
-				console.log(item);
-				console.log("下载");
-			}
-		}
-	];
-
-	const defaultModuleTextToolsList: ChemUIToolsItemType<ChemUITextItemType>[] = [
-		{
-			icon: (item: ChemUITextItemType) => {
-				if (!item.download_url) return;
-				return (
-					<div className="flex items-center">
-						{/*<IconSVG name="DownloadIconPrimary" style={{ width: "14px", height: "14px" }} />*/}
-						下载
-					</div>
-				);
-			},
-
-			onClick: (item: ChemUITextItemType) => {
-				// if (item.download_url) downloadFile(item.download_url, { useBlob: true, onError: (err: Error) => console.error(err) });
-				console.log(item);
-				console.log("下载");
-			}
-		}
-	];
+	const defaultItemTool = defaultDownloadTools<ChemUIListItemType>();
+	const defaultModuleTool = defaultDownloadTools<ChemUIModuleItemType>();
+	const defaultTextTool = defaultDownloadTools<ChemUITextItemType>();
 
 	const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		setTextValue(e.target.value);
@@ -160,9 +80,11 @@ const ListPage = () => {
 						<List<MyConfig>
 							customScrollParent={rootRef.current as HTMLElement}
 							dataSource={moduleItemList}
-							chemUIModuleTools={defaultModuleToolsList}
-							chemUIListTools={defaultToolsList}
-							chemUITextListTools={defaultModuleTextToolsList}
+							toolsData={{
+								moduleTools: defaultModuleTool,
+								itemTools: defaultItemTool,
+								textItemTools: defaultTextTool
+							}}
 							renderComponents={renderComponents}
 							config={{
 								test: "1232",

@@ -91,3 +91,50 @@ export const parseToObject = <T>(value: string): string | T => {
 
 	return parsedObject;
 };
+
+function triggerDownload(href: string, filename: string) {
+	const link = document.createElement("a");
+	link.href = href;
+	link.download = filename;
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+}
+
+function extractFilenameFromUrl(url: string): string {
+	try {
+		return decodeURIComponent(url.split("/").pop()?.split("?")[0] || "download");
+	} catch {
+		return "download";
+	}
+}
+
+type DownloadOptions = {
+	filename?: string;
+	useBlob?: boolean; // 是否使用 fetch Blob 方式下载（适合跨域）
+	onError?: (error: any) => void;
+};
+
+export async function downloadFile(url: string, options: DownloadOptions = {}) {
+	const { filename, useBlob = false, onError } = options;
+
+	try {
+		if (useBlob) {
+			// 使用 fetch + blob 下载，兼容跨域资源
+			const response = await fetch(url);
+			if (!response.ok) throw new Error(`Failed to fetch file: ${response.statusText}`);
+
+			const blob = await response.blob();
+			const blobUrl = URL.createObjectURL(blob);
+
+			triggerDownload(blobUrl, filename || extractFilenameFromUrl(url));
+			URL.revokeObjectURL(blobUrl);
+		} else {
+			// 直接触发 <a download>
+			triggerDownload(url, filename || extractFilenameFromUrl(url));
+		}
+	} catch (error) {
+		console.error("下载失败", error);
+		onError?.(error);
+	}
+}

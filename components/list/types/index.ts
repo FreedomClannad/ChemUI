@@ -115,3 +115,9 @@ export enum ModeEnum {
 	"SINGLE" = "Single",
 	"MULTI" = "Multi"
 }
+
+export type ChemUIListToolsType = {
+	moduleTools?: ChemUIToolsItemType<ChemUIModuleItemType>[];
+	itemTools?: ChemUIToolsItemType<ChemUIListItemContentType>[];
+	textItemTools?: ChemUIToolsItemType<ChemUITextItemType>[];
+};
