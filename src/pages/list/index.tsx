@@ -132,7 +132,7 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(DemoTable));
+		setTextValue(JSON.stringify(Demo3DPreview));
 	}, []);
 	const { moduleItemList, renderComponents } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);

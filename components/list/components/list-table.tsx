@@ -12,7 +12,6 @@ const ListTable = (props: ChemUIListItemContentType) => {
 	const [error, setError] = useState<boolean>(false);
 	const validPath = useMemo(() => (typeof path === "string" ? path : ""), [path]);
 	const options = useMemo(() => {
-		return undefined;
 		try {
 			if (isPlainObject(content)) {
 				const options = content as any;

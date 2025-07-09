@@ -1,44 +1,36 @@
 import type { CSSProperties, ReactNode } from "react";
 import style from "./style.module.css";
 import { cn } from "#/utils";
+export type HeaderType = {
+	rootClassName?: string;
+	className?: string;
+	left?: ReactNode;
+	right?: ReactNode;
+};
 type Props = {
 	title: string;
-	rootClass?: string;
-	headerClass?: string;
-	headerSpanClassName?: string;
-	contentClass?: string;
 	children?: ReactNode;
-	right?: ReactNode;
-	titleSpanClassName?: string;
 	contentStyle?: CSSProperties;
+	header?: HeaderType;
+	className?: string;
+	titleClassName?: string;
+	contentClassName?: string;
 };
 const VerticalTitleCard = (props: Props) => {
-	const { title, rootClass, headerClass, headerSpanClassName, contentClass, children, right, titleSpanClassName, contentStyle } =
-		props;
+	const { title, titleClassName, className, header, contentClassName, children, contentStyle } = props;
 	return (
 		<>
-			<div className={rootClass}>
-				<div className={cn("flex justify-between", headerClass)}>
-					<div className={cn(style.title, "after:bg-primary relative flex pl-3", headerSpanClassName)}>
-						<span className={cn("text-gray-1010 text-sm font-normal", titleSpanClassName)} style={{ lineHeight: "20px" }}>
+			<div className={className}>
+				<div className={cn("flex justify-between", header?.rootClassName)}>
+					<div className={cn(style.title, "after:bg-primary relative flex pl-3", header?.className)}>
+						<span className={cn("text-gray-1010 text-sm font-normal", titleClassName)} style={{ lineHeight: "20px" }}>
 							{title}
 						</span>
-						{/*这里有个Info提示信息*/}
-						{/*<Tooltip popupContent={tooltip} disabled={tooltipDisabled}>*/}
-						{/*	{tooltipDisabled ? (*/}
-						{/*		<></>*/}
-						{/*	) : (*/}
-						{/*		<div className="ml-[10px] flex items-center">*/}
-						{/*			<IconSVG name="AlmPromptIcon" style={{ width: "14px", height: "14px" }} />*/}
-						{/*		</div>*/}
-						{/*	)}*/}
-						{/*</Tooltip>*/}
+						{header?.left}
 					</div>
-					<div className="flex items-center justify-center">
-						{right && <div className={cn("flex items-center justify-center")}>{right}</div>}
-					</div>
+					{header?.right && <div className="flex items-center">{header?.right}</div>}
 				</div>
-				<div className={cn("mt-3", contentClass)} style={contentStyle}>
+				<div className={cn(contentClassName)} style={contentStyle}>
 					{children}
 				</div>
 			</div>

@@ -106,7 +106,7 @@ export const Demo3DPreview = [
 		description: "这是一个模块的描述",
 		files: [
 			{
-				type: ChemUIListTypeEnum.MOLSTAR_IMAGE_MULTI,
+				type: ChemUIListTypeEnum.MOLSTAR_PANEL_PICKER,
 				name: "这是3D内容",
 				path: [
 					{
