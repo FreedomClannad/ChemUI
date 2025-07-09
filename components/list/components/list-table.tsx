@@ -5,12 +5,14 @@ import { useReadFile } from "#/list/hooks";
 import { isChemUIModuleArrayType } from "#/list/tools.ts";
 import { isPlainObject } from "lodash-es";
 import { MolstarTable } from "#/table";
+import { Loading } from "#/loading";
 const ListTable = (props: ChemUIListItemContentType) => {
 	const { path } = props;
 	const [content, setContent] = useState<any>("");
 	const [error, setError] = useState<boolean>(false);
 	const validPath = useMemo(() => (typeof path === "string" ? path : ""), [path]);
 	const options = useMemo(() => {
+		return undefined;
 		try {
 			if (isPlainObject(content)) {
 				const options = content as any;
@@ -30,7 +32,6 @@ const ListTable = (props: ChemUIListItemContentType) => {
 	}, [content]);
 	const processData = async () => {
 		const data = await fetchFileFromURL(validPath);
-		console.log(data);
 		setContent(data);
 	};
 
@@ -44,7 +45,9 @@ const ListTable = (props: ChemUIListItemContentType) => {
 					<MolstarTable option={options} />
 				</>
 			) : (
-				<div>Loading...</div>
+				<div className="flex items-center justify-center">
+					<Loading />
+				</div>
 			)}
 		</>
 	);
