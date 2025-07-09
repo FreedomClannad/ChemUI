@@ -12,11 +12,11 @@ const ToolsSidebar = <T extends SidebarItemType>(props: ToolsSidebarProps<T>) =>
 			title={title}
 			className="h-full"
 			header={{
-				rootClassName: "h-[36px] bg-[#f2f3f5]",
+				rootClassName: "h-9 bg-gray-100",
 				className: "items-center after:!top-[9px]",
 				right: tools
 			}}
-			contentStyle={{ height: "calc(100% - 36px)" }}
+			contentStyle={{ height: "calc(100% - 2.25rem)" }}
 		>
 			<BaseSidebar<T> {...props} />
 		</VerticalTitleCard>
