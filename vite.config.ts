@@ -13,6 +13,7 @@ export default defineConfig(() => {
 	};
 	return {
 		define,
+		publicDir: "public", // 默认值，写出来确保没问题
 		resolve: {
 			alias: {
 				"#": resolve(__dirname, "./components"),

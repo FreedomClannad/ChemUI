@@ -3,7 +3,7 @@ import type { TableProps } from "antd";
 import { Image, Table, message } from "antd";
 import Papa from "papaparse";
 import { imageNameRegex, imageRegex, smilesRegex } from "#/regex";
-import type { ChemUIListItemContentType } from "#/list/types";
+import type { ChemUIConfig, ChemUIListItemContentType, CSVConfigType } from "#/list/types";
 import { fetchFileFromURL } from "#/utils";
 import { useReadFile } from "#/list/hooks";
 import { errorBase64 } from "#/img";
@@ -25,10 +25,10 @@ type CSVColumnsType = {
 };
 
 const CSV = (props: ChemUIListItemContentType) => {
-	const { path } = props;
+	const { path, config } = props;
 	const [dataSource, setDataSource] = useState<DataType[]>([]);
 	const [columns, setColumns] = useState<TableProps<CSVColumnsType>["columns"]>([]);
-
+	const configType = config as CSVConfigType;
 	const PapaParse = (data: string) => {
 		Papa.parse(data, {
 			header: true,
@@ -52,7 +52,6 @@ const CSV = (props: ChemUIListItemContentType) => {
 					//   },
 					// }))
 					const new_columns: TableProps<CSVColumnsType>["columns"] = [];
-
 					columnKeys.forEach(key => {
 						// 屏蔽表格标头的Img字段
 						if (!imageNameRegex.test(key)) {
@@ -63,7 +62,7 @@ const CSV = (props: ChemUIListItemContentType) => {
 									key,
 									minWidth: 120,
 									render: (text: string) => {
-										return <Smiles smiles={text} />;
+										return <Smiles smiles={text} options={configType?.csv?.smilesOptions} />;
 									}
 								});
 							}

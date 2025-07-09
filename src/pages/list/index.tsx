@@ -4,19 +4,29 @@ import { useDebounce } from "ahooks";
 import { parseToObject } from "#/utils";
 import useList from "#/list/hooks/use-list.ts";
 import { List } from "#/list/list.tsx";
-import type { ChemUIListItemType, ChemUIModuleItemType, ChemUITextItemType, ChemUIToolsItemType } from "#/list/types";
+import type {
+	ChemUIListItemType,
+	ChemUIModuleItemType,
+	ChemUITextItemType,
+	ChemUIToolsItemType,
+	CSVConfigType
+} from "#/list/types";
 import {
 	Demo2D,
 	Demo3D,
 	Demo3DPreview,
 	Demo3DSEQ,
 	DemoCSV,
+	DemoCSVSmiles,
 	DemoImgList,
 	DemoMarkdown,
 	DemoSingleImg,
 	DemoTable,
 	DemoText
 } from "@/pages/list/demo.ts";
+type MyConfig = {
+	test: string;
+} & CSVConfigType;
 const ListPage = () => {
 	const [textValue, setTextValue] = useState<string>("");
 	const [textValueError, setTextValueError] = useState("");
@@ -122,7 +132,7 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(DemoImgList()));
+		setTextValue(JSON.stringify(DemoCSVSmiles));
 	}, []);
 	const { moduleItemList } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);
@@ -147,12 +157,22 @@ const ListPage = () => {
 				<div>
 					<div className="text-lg text-gray-900">可视化</div>
 					<div>
-						<List
+						<List<MyConfig>
 							customScrollParent={rootRef.current as HTMLElement}
 							dataSource={moduleItemList}
 							chemUIModuleTools={defaultModuleToolsList}
 							chemUIListTools={defaultToolsList}
 							chemUITextListTools={defaultModuleTextToolsList}
+							config={{
+								test: "1232",
+								csv: {
+									smilesOptions: {
+										locateFile: (file: string) => {
+											return `/${file}`;
+										}
+									}
+								}
+							}}
 						></List>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
+export * from "./csv";
 import type { FC, ReactNode } from "react";
-import Button from "#/list/components/Button";
 import {
 	CSV,
 	TextBox,
@@ -47,6 +47,10 @@ export type ChemUITextItemType = {
 	download_url?: string;
 };
 
+export type ChemUIConfig = Record<string, unknown>;
+
+export type ChemUIListConfigType = ChemUIConfig;
+
 export type ChemUIListItemContentType = {
 	type: ChemUIListTypeEnum | string;
 	name: string;
@@ -55,6 +59,8 @@ export type ChemUIListItemContentType = {
 	description?: string;
 	download_url?: string;
 	smiles?: string;
+	// 这里是给里面一些需要组件配置传递值
+	config?: ChemUIListConfigType;
 };
 
 export type ChemUIListItemOptionsType = {

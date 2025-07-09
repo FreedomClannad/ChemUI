@@ -6,6 +6,13 @@ import { Skeleton } from "antd";
 import { cn } from "#/utils";
 import { errorBase64 } from "#/img";
 
+export type RDKitLoaderOptions = {
+	/**
+	 * Optional path to the RDKit module .wasm file on your server.
+	 */
+	locateFile?: (file: string) => string;
+};
+
 type MoleculeStructureProps = {
 	id: string;
 	className?: string;
@@ -16,6 +23,7 @@ type MoleculeStructureProps = {
 	extraDetails?: Record<string, any>;
 	drawingDelay?: number;
 	onError?: (error: Error) => void;
+	options?: RDKitLoaderOptions;
 };
 
 const MoleculeStructure: React.FC<MoleculeStructureProps> = ({
@@ -27,7 +35,8 @@ const MoleculeStructure: React.FC<MoleculeStructureProps> = ({
 	subStructure = "",
 	extraDetails = {},
 	drawingDelay,
-	onError
+	onError,
+	options
 }) => {
 	const [svg, setSvg] = useState<string>();
 	const [rdKitLoaded, setRdKitLoaded] = useState(false);
@@ -85,13 +94,7 @@ const MoleculeStructure: React.FC<MoleculeStructureProps> = ({
 
 	useEffect(() => {
 		const realInit = (initRDKitModule as any).default || initRDKitModule;
-		realInit({
-			locateFile: (file: string) => {
-				// 这里得修改成，对外暴露的路径
-				if (file.endsWith(".wasm")) return `/_next/static/chunks/${file}`;
-				return file;
-			}
-		})
+		realInit(options)
 			.then((mod: RDKitModule) => {
 				setRDKit(mod);
 				setRdKitLoaded(true);

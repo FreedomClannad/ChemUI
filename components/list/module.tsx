@@ -2,6 +2,7 @@ import { Virtuoso } from "react-virtuoso";
 import { cn } from "#/utils";
 import { Item } from "#/list";
 import type {
+	ChemUIListConfigType,
 	ChemUIListItemContentType,
 	ChemUIListItemOptionsType,
 	ChemUIModuleItemType,
@@ -19,6 +20,7 @@ export type ModuleType = {
 	chemUITextListTools?: ChemUIToolsItemType<ChemUITextItemType>[];
 	chemUIModuleTools?: ChemUIToolsItemType<ChemUIModuleItemType>[];
 	customScrollParent?: HTMLElement;
+	config?: ChemUIListConfigType;
 };
 
 type MergeListItem =
@@ -31,7 +33,7 @@ type MergeListItem =
 			data: ChemUITextItemType;
 	  };
 const Module = (props: ModuleType) => {
-	const { data, options, chemUIListTools, chemUITextListTools, chemUIModuleTools = [], customScrollParent } = props;
+	const { data, options, chemUIListTools, chemUITextListTools, chemUIModuleTools = [], customScrollParent, config } = props;
 	const { name, files = [], text = [] } = data;
 	const toolsRender = <ToolsList<ChemUIModuleItemType> toolsList={chemUIModuleTools} dataItem={data} />;
 	const mergeList: MergeListItem[] = useMemo(() => {
@@ -40,6 +42,7 @@ const Module = (props: ModuleType) => {
 			...text.map(item => ({ type: "text", data: item }) as const)
 		];
 	}, [files, text]);
+
 	return (
 		<>
 			<div className="h-full">
@@ -55,7 +58,7 @@ const Module = (props: ModuleType) => {
 						if (item.type === "file") {
 							return (
 								<div key={`${item.type}-${index}`} className={cn("py-4")}>
-									<Item item={item.data} options={options} toolsList={chemUIListTools} />
+									<Item item={item.data} options={options} toolsList={chemUIListTools} config={config} />
 								</div>
 							);
 						} else {

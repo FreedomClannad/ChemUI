@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import {
+	type ChemUIListConfigType,
 	type ChemUIListItemComponentMap,
 	type ChemUIListItemContentType,
 	type ChemUIListItemOptionsType,
@@ -14,9 +15,10 @@ type Props = {
 	renderItem?: ChemUIListItemComponentMap;
 	options?: ChemUIListItemOptionsType;
 	toolsList?: ChemUIToolsItemType<ChemUIListItemContentType>[];
+	config?: ChemUIListConfigType;
 };
 const Item = (props: Props) => {
-	const { item, renderItem, options, toolsList = [] } = props;
+	const { item, renderItem, options, toolsList = [], config } = props;
 	const { type = "", name, description } = item;
 	const renderMap: ChemUIListItemComponentMap = useMemo(() => {
 		const defaultRenderChemUIListItemMapChange = defaultChemUIListItemComponents
@@ -43,14 +45,14 @@ const Item = (props: Props) => {
 	if (!Component) {
 		return (
 			<Descriptions title={name} description={description} tools={toolsRender}>
-				<OtherComponent {...item} />
+				<OtherComponent {...item} config={config} />
 			</Descriptions>
 		);
 	}
 	return (
 		<>
 			<Descriptions title={name} description={description} tools={toolsRender}>
-				<Component {...item} {...options} />
+				<Component {...item} {...options} config={config} />
 			</Descriptions>
 		</>
 	);

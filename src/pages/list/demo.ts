@@ -80,6 +80,26 @@ export const DemoCSV = [
 	}
 ];
 
+export const DemoCSVSmiles = {
+	visual_data: [
+		{
+			name: "ADMET Predictor",
+			files: [
+				{
+					name: "CSV File",
+					path: "http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-06-13/ADMET_Predictor_5416cf75-493f-4351-8764-4b15f4de8b56.csv",
+					type: "CSV",
+					format: "CSV",
+					download_url:
+						"http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-06-13/ADMET_Predictor_5416cf75-493f-4351-8764-4b15f4de8b56.csv"
+				}
+			]
+		}
+	],
+	download_url:
+		"http://139.9.227.163/console/api/custom_tool_files?storage_file_path=custom_tools/2025-06-13/ADMET_Predictor_c40af49d-e156-4277-8326-695d2e6b3bc9.zip"
+};
+
 export const Demo3DPreview = [
 	{
 		name: "这是一个模块",
