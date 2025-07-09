@@ -4,6 +4,7 @@ import type { TableDataType } from "#/table/types";
 import { getMolstarFormat } from "#/molstar/utils";
 import { MolstarContext } from "#/molstar/context";
 import { TableColumnsContext } from "#/table/context";
+import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 type ValueType = {
 	url: string;
 	format: BuiltInTrajectoryFormat;
@@ -46,7 +47,7 @@ const TableMolstarBox = <T extends object & TableDataType>(value: string | Value
 	if (!columnsState || !value) return null;
 	return (
 		<div className="flex cursor-pointer items-center justify-center text-xs" onClick={handleClick}>
-			{columnsState.molstarOpen ? "开" : "关"}
+			{columnsState.molstarOpen ? <RiEyeLine className="h-4 w-4" /> : <RiEyeOffLine className="h-4 w-4" />}
 		</div>
 	);
 };
