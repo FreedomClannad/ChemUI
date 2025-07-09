@@ -134,7 +134,7 @@ const ListPage = () => {
 	useEffect(() => {
 		setTextValue(JSON.stringify(DemoCSVSmiles));
 	}, []);
-	const { moduleItemList } = useList(result);
+	const { moduleItemList, renderComponents } = useList(result);
 	const rootRef = useRef<HTMLDivElement>(null);
 	return (
 		<div className="h-[100vh]">
@@ -163,6 +163,7 @@ const ListPage = () => {
 							chemUIModuleTools={defaultModuleToolsList}
 							chemUIListTools={defaultToolsList}
 							chemUITextListTools={defaultModuleTextToolsList}
+							renderComponents={renderComponents}
 							config={{
 								test: "1232",
 								csv: {

@@ -1,5 +1,10 @@
-import { useEffect, useState } from "react";
-import type { ChemUIAppItemType, ChemUIModuleItemType } from "#/list/types";
+import { useEffect, useMemo, useState } from "react";
+import {
+	type ChemUIAppItemType,
+	type ChemUIListItemComponentMap,
+	type ChemUIModuleItemType,
+	defaultChemUIListItemComponents
+} from "#/list/types";
 import { detectMergeItemType } from "#/list/tools.ts";
 
 const useList = (result: string) => {
@@ -24,7 +29,16 @@ const useList = (result: string) => {
 		}
 	}, [result]);
 
-	return { moduleItemList };
+	const renderComponents = useMemo(() => {
+		return defaultChemUIListItemComponents
+			? Object.keys(defaultChemUIListItemComponents).reduce((acc, key) => {
+					acc[key.toUpperCase()] = defaultChemUIListItemComponents[key];
+					return acc;
+				}, {} as ChemUIListItemComponentMap)
+			: ({} as ChemUIListItemComponentMap);
+	}, [defaultChemUIListItemComponents]);
+
+	return { moduleItemList, renderComponents };
 };
 
 export default useList;

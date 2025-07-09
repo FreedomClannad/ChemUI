@@ -4,42 +4,33 @@ import {
 	type ChemUIListItemComponentMap,
 	type ChemUIListItemContentType,
 	type ChemUIListItemOptionsType,
-	type ChemUIToolsItemType,
-	defaultChemUIListItemComponents
+	type ChemUIToolsItemType
 } from "#/list/types";
 import { Descriptions } from "#/descriptions";
 import { OtherComponent } from "#/list/components";
 import { ToolsList } from "#/list/components/tools";
 type Props = {
 	item: ChemUIListItemContentType;
-	renderItem?: ChemUIListItemComponentMap;
+	renderComponents?: ChemUIListItemComponentMap;
 	options?: ChemUIListItemOptionsType;
 	toolsList?: ChemUIToolsItemType<ChemUIListItemContentType>[];
 	config?: ChemUIListConfigType;
 };
 const Item = (props: Props) => {
-	const { item, renderItem, options, toolsList = [], config } = props;
+	const { item, renderComponents, options, toolsList = [], config } = props;
 	const { type = "", name, description } = item;
 	const renderMap: ChemUIListItemComponentMap = useMemo(() => {
-		const defaultRenderChemUIListItemMapChange = defaultChemUIListItemComponents
-			? Object.keys(defaultChemUIListItemComponents).reduce((acc, key) => {
-					acc[key.toUpperCase()] = defaultChemUIListItemComponents[key];
-					return acc;
-				}, {} as ChemUIListItemComponentMap)
-			: ({} as ChemUIListItemComponentMap);
-
 		// 将 renderItem 的键转换为大写
-		const renderItemChange = renderItem
-			? Object.keys(renderItem).reduce((acc, key) => {
-					acc[key.toUpperCase()] = renderItem[key];
+		const renderMap = renderComponents
+			? Object.keys(renderComponents).reduce((acc, key) => {
+					acc[key.toUpperCase()] = renderComponents[key];
 					return acc;
 				}, {} as ChemUIListItemComponentMap)
 			: ({} as ChemUIListItemComponentMap);
 		return {
-			...defaultRenderChemUIListItemMapChange,
-			...renderItemChange
+			...renderMap
 		};
-	}, [renderItem]);
+	}, [renderComponents]);
 	const toolsRender = <ToolsList<ChemUIListItemContentType> toolsList={toolsList} dataItem={item} />;
 	const Component = renderMap[type.toUpperCase()];
 	if (!Component) {
