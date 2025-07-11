@@ -3,7 +3,7 @@ import type { TableProps } from "antd";
 import { Image, Table, message } from "antd";
 import Papa from "papaparse";
 import { imageNameRegex, imageRegex, smilesRegex } from "#/regex";
-import type { ChemUIConfig, ChemUIListItemContentType, CSVConfigType } from "#/list/types";
+import type { ChemUIListItemContentType, CSVConfigType } from "#/list/types";
 import { fetchFileFromURL } from "#/utils";
 import { useReadFile } from "#/list/hooks";
 import { errorBase64 } from "#/img";
