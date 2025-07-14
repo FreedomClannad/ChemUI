@@ -75,21 +75,23 @@ export type ChemUIListItemComponentMap = {
 	[key: string]: FC<ChemUIListItemType>;
 };
 
-export const defaultChemUIListItemComponents: ChemUIListItemComponentMap = {
-	[ChemUIListTypeEnum.TABLE]: ListTable,
-	[ChemUIListTypeEnum.MOLSTAR]: Molstar,
-	[ChemUIListTypeEnum.KETCHER]: Ketcher,
-	[ChemUIListTypeEnum.CSV]: CSV,
-	[ChemUIListTypeEnum.TEXT]: TextBox,
-	[ChemUIListTypeEnum.MARKDOWN]: Markdown,
-	[ChemUIListTypeEnum.IMG]: ImgBox,
-	[ChemUIListTypeEnum.MOLSTAR_SEQ]: MolstarSeq,
-	[ChemUIListTypeEnum.MOLSTAR_PANEL_SINGLE]: MolstarPanelSingle,
-	[ChemUIListTypeEnum.MOLSTAR_PANEL_MULTI]: MolstarPanelMulti,
-	[ChemUIListTypeEnum.MOLSTAR_PANEL_PICKER]: MolstarPanelPicker,
-	[ChemUIListTypeEnum.MOLSTAR_IMAGE_SINGLE]: MolstarImageSingle,
-	[ChemUIListTypeEnum.MOLSTAR_IMAGE_MULTI]: MolstarImageMulti,
-	[ChemUIListTypeEnum.MOLSTAR_IMAGE_PICKER]: MolstarImagePicker
+export const defaultChemUIListItemComponents = (): ChemUIListItemComponentMap => {
+	return {
+		[ChemUIListTypeEnum.TABLE]: ListTable,
+		[ChemUIListTypeEnum.MOLSTAR]: Molstar,
+		[ChemUIListTypeEnum.KETCHER]: Ketcher,
+		[ChemUIListTypeEnum.CSV]: CSV,
+		[ChemUIListTypeEnum.TEXT]: TextBox,
+		[ChemUIListTypeEnum.MARKDOWN]: Markdown,
+		[ChemUIListTypeEnum.IMG]: ImgBox,
+		[ChemUIListTypeEnum.MOLSTAR_SEQ]: MolstarSeq,
+		[ChemUIListTypeEnum.MOLSTAR_PANEL_SINGLE]: MolstarPanelSingle,
+		[ChemUIListTypeEnum.MOLSTAR_PANEL_MULTI]: MolstarPanelMulti,
+		[ChemUIListTypeEnum.MOLSTAR_PANEL_PICKER]: MolstarPanelPicker,
+		[ChemUIListTypeEnum.MOLSTAR_IMAGE_SINGLE]: MolstarImageSingle,
+		[ChemUIListTypeEnum.MOLSTAR_IMAGE_MULTI]: MolstarImageMulti,
+		[ChemUIListTypeEnum.MOLSTAR_IMAGE_PICKER]: MolstarImagePicker
+	};
 };
 
 export type ChemUIToolsItemType<T> = {
