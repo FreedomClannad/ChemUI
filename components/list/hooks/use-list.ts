@@ -1,33 +1,40 @@
-import { useEffect, useMemo, useState } from "react";
-import {
-	type ChemUIAppItemType,
-	type ChemUIListItemComponentMap,
-	type ChemUIModuleItemType,
-	defaultChemUIListItemComponents
-} from "#/list/types";
+import { useMemo } from "react";
+import { type ChemUIAppItemType, type ChemUIListItemComponentMap, defaultChemUIListItemComponents } from "#/list/types";
 import { detectMergeItemType } from "#/list/tools.ts";
 
-const useList = (result: string) => {
-	const [moduleItemList, setModuleItemList] = useState<ChemUIModuleItemType[]>([]);
-	useEffect(() => {
-		if (result) {
+const useList = () => {
+	const parseJSONList = (json: string) => {
+		if (json) {
 			try {
-				const newOption = JSON.parse(result);
+				const newOption = JSON.parse(json);
 				const ChemUIType = detectMergeItemType(newOption);
 				if (ChemUIType !== "UNKNOWN") {
 					if (ChemUIType === "APP") {
 						const { visual_data } = newOption as ChemUIAppItemType;
-						setModuleItemList(visual_data);
+						return visual_data;
 					} else {
-						setModuleItemList(newOption);
+						return newOption;
 					}
 				}
 			} catch (e) {
 				console.error(e);
-				setModuleItemList([]);
+				return [];
 			}
 		}
-	}, [result]);
+		return [];
+	};
+
+	const validateObjectList = (obj: never) => {
+		const ChemUIType = detectMergeItemType(obj);
+		if (ChemUIType !== "UNKNOWN") {
+			if (ChemUIType === "APP") {
+				const { visual_data } = obj as ChemUIAppItemType;
+				return visual_data;
+			} else {
+				return obj;
+			}
+		}
+	};
 
 	const renderComponents = useMemo(() => {
 		return defaultChemUIListItemComponents
@@ -38,7 +45,7 @@ const useList = (result: string) => {
 			: ({} as ChemUIListItemComponentMap);
 	}, [defaultChemUIListItemComponents]);
 
-	return { moduleItemList, renderComponents };
+	return { parseJSONList, validateObjectList, renderComponents };
 };
 
 export default useList;

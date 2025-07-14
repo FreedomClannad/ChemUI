@@ -28,7 +28,8 @@ const ListPage = () => {
 	const defaultItemTool = defaultDownloadTools<ChemUIListItemType>();
 	const defaultModuleTool = defaultDownloadTools<ChemUIModuleItemType>();
 	const defaultTextTool = defaultDownloadTools<ChemUITextItemType>();
-
+	const [moduleItemList, setModuleItemList] = useState<ChemUIModuleItemType[]>([]);
+	const { renderComponents, parseJSONList } = useList();
 	const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		setTextValue(e.target.value);
 	};
@@ -52,9 +53,12 @@ const ListPage = () => {
 		return JSON.stringify(json_value);
 	}, [json_value]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(Demo3DPreview));
+		setModuleItemList(parseJSONList(result));
+	}, [result]);
+	useEffect(() => {
+		setTextValue(JSON.stringify(Demo3D));
 	}, []);
-	const { moduleItemList, renderComponents } = useList(result);
+
 	const rootRef = useRef<HTMLDivElement>(null);
 	return (
 		<div className="h-[100vh]">
