@@ -39,7 +39,7 @@ const useList = () => {
 	const renderComponents = useMemo(() => {
 		const defaultComponents = defaultChemUIListItemComponents();
 		return defaultComponents
-			? Object.keys(defaultChemUIListItemComponents).reduce((acc, key) => {
+			? Object.keys(defaultComponents).reduce((acc, key) => {
 					acc[key.toUpperCase()] = defaultComponents[key];
 					return acc;
 				}, {} as ChemUIListItemComponentMap)
