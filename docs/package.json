@@ -1,7 +1,7 @@
 {
   "name": "chem-ui-docs",
   "version": "0.0.1",
-  "description": "chemui docs",
+  "description": "chem ui docs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -71,5 +71,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "stylelint": "^14.9.1"
+  },
+  "dependencies": {
+    "chem-ui": "^0.0.2-dev"
   }
 }

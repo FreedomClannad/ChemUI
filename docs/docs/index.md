@@ -1,12 +1,14 @@
 ---
 hero:
-  title: library
-  description: chemui docs
+  title: ChemUI
+  description: ChemUI 组件文档
   actions:
-    - text: Hello
+    - text: 什么是ChemUI
       link: /
-    - text: World
+    - text: 快速开始
       link: /
+    - text: GitHub
+      link: https://github.com/FreedomClannad/ChemUI
 features:
   - title: Hello
     emoji: 💎
@@ -19,4 +21,4 @@ features:
     description: Put ! description here
 ---
 
-chem-ui-docs
+ChemUI

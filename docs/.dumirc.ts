@@ -3,6 +3,10 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   outputPath: 'docs-dist',
   themeConfig: {
-    name: 'chem-ui-docs',
+    name: 'ChemUI',
   },
+  locales: [
+    { id: 'zh-CN', name: '中文' },
+    { id: 'en-US', name: 'EN' },
+  ],
 });
