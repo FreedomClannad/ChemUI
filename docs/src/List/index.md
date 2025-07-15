@@ -1,6 +1,6 @@
 ---
 title: List 定制列表
-order: 2
+order: 1
 ---
 # List 用于展示一组相关的信息。
 

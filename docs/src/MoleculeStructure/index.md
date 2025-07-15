@@ -5,7 +5,6 @@ order: 3
 # MoleculeStructure 分子结构渲染
 
 ## 如何使用
-按照指定的格式，给相应的列表数据，即可展示。
 
 ```tsx
 import { MoleculeStructure } from 'chem-ui';
