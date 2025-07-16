@@ -9,4 +9,6 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'EN' },
   ],
+  plugins: ['@umijs/plugins/dist/tailwindcss'],
+  tailwindcss: {},
 });

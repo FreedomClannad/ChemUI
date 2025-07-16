@@ -6,7 +6,7 @@ order: 1
 
 ## 如何使用
 按照指定的格式，给相应的列表数据，即可展示。
-### 格式
+## 格式
 
 ```json
 {
@@ -37,9 +37,27 @@ order: 1
 }
 ```
 
-#### 组件类别
-##### 3D组件展示
+## 组件展示
+### 3D组件展示
+<code src="./demo-3d.tsx"></code>
 
-```tsx
+### 3D-SEQ组件
+<code src="./demo-3d-seq.tsx"></code>
 
-```
+### 2D组件展示
+<code src="./demo-2d.tsx"></code>
+
+### CSV组件展示
+<code src="./demo-csv.tsx"></code>
+
+### TXT组件展示
+<code src="./demo-text.tsx"></code>
+
+### Markdown组件展示
+<code src="./demo-markdown.tsx"></code>
+
+### 单图片组件展示
+<code src="./demo-single-img.tsx"></code>
+
+### 多图片组件展示
+<code src="./demo-multiple-img.tsx"></code>

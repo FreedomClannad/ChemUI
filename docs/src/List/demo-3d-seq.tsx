@@ -1,0 +1,59 @@
+import type {
+  ChemUIListItemType,
+  ChemUIModuleItemType,
+  ChemUITextItemType,
+} from 'chem-ui';
+import { List, defaultDownloadTools, useListHook } from 'chem-ui';
+import 'chem-ui/dist/index.css';
+import React, { type FC, useEffect, useRef, useState } from 'react';
+
+const Demo3DSEQ: FC<{ title: string }> = (props) => {
+  const Demo = {
+    visual_data: [
+      {
+        name: '3D的Demo名称',
+        description: '3D的Demo内容描述',
+        files: [
+          {
+            type: '3D-SEQ',
+            name: '3D的展示名称',
+            description: '3D的展示描述',
+            path: 'http://localhost:5500/proteins.pdb',
+            download_url: 'http://localhost:5500/proteins.pdb',
+            format: 'pdb',
+          },
+        ],
+        download_url: 'http://localhost:5500/proteins.pdb',
+      },
+    ],
+  };
+
+  const [moduleItemList, setModuleItemList] = useState<ChemUIModuleItemType[]>(
+    [],
+  );
+  const defaultItemTool = defaultDownloadTools<ChemUIListItemType>();
+  const defaultModuleTool = defaultDownloadTools<ChemUIModuleItemType>();
+  const defaultTextTool = defaultDownloadTools<ChemUITextItemType>();
+  const { renderComponents, validateObjectList } = useListHook();
+  const rootRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    setModuleItemList(validateObjectList(Demo) || []);
+  }, []);
+
+  return (
+    <div className="h-[700px] overflow-y-auto" ref={rootRef}>
+      <List
+        customScrollParent={rootRef.current as HTMLElement}
+        dataSource={moduleItemList}
+        toolsData={{
+          moduleTools: defaultModuleTool,
+          itemTools: defaultItemTool,
+          textItemTools: defaultTextTool,
+        }}
+        renderComponents={renderComponents}
+      ></List>
+    </div>
+  );
+};
+
+export default Demo3DSEQ;
