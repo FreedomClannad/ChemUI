@@ -9,7 +9,6 @@ type Props = {
 };
 const Smiles = (props: Props) => {
 	const { id = getShortId(), smiles, options, onError } = props;
-	console.log(id);
 	return (
 		<div className="h-full w-full">
 			<MoleculeStructure id={id} structure={smiles} onError={onError} options={options} />
