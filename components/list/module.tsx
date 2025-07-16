@@ -50,7 +50,7 @@ const Module = (props: ModuleType) => {
 
 	return (
 		<>
-			<div className="h-full">
+			<div className="">
 				<div className="flex h-8 w-full items-center justify-between border-b border-blue-500">
 					<span className="inline-block h-full rounded-sm bg-blue-500 px-4 py-1 text-base text-white">{name}</span>
 					<div>{toolsRender}</div>

@@ -5,6 +5,7 @@ import isEmpty from "lodash-es/isEmpty";
 import { Skeleton } from "antd";
 import { cn } from "#/utils";
 import { errorBase64 } from "#/img";
+import { loadRDKit } from "#/rdkit/rdkitLoader.ts";
 
 export type RDKitLoaderOptions = {
 	/**
@@ -93,9 +94,8 @@ const MoleculeStructure: React.FC<MoleculeStructureProps> = ({
 	};
 
 	useEffect(() => {
-		const realInit = (initRDKitModule as any).default || initRDKitModule;
-		realInit(options)
-			.then((mod: RDKitModule) => {
+		loadRDKit(options)
+			?.then((mod: RDKitModule) => {
 				setRDKit(mod);
 				setRdKitLoaded(true);
 			})
