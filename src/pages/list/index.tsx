@@ -2,8 +2,8 @@ import { type ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import ReactJson from "react-json-view";
 import { useDebounce } from "ahooks";
 import { parseToObject } from "#/utils";
-import useList from "#/list/hooks/use-list.ts";
-import { List } from "#/list/list.tsx";
+import { useListHook } from "#/list/hooks/use-list";
+import { List } from "#/list/list";
 import type { ChemUIListItemType, ChemUIModuleItemType, ChemUITextItemType, CSVConfigType } from "#/list/types";
 import {
 	Demo2D,
@@ -12,12 +12,12 @@ import {
 	Demo3DSEQ,
 	DemoCSV,
 	DemoCSVSmiles,
-	DemoImgList,
+	DemoMultipleList,
 	DemoMarkdown,
 	DemoSingleImg,
 	DemoTable,
 	DemoText
-} from "@/pages/list/demo.ts";
+} from "@/pages/list/demo";
 import { defaultDownloadTools } from "#/list/default";
 type MyConfig = {
 	test: string;
@@ -29,7 +29,7 @@ const ListPage = () => {
 	const defaultModuleTool = defaultDownloadTools<ChemUIModuleItemType>();
 	const defaultTextTool = defaultDownloadTools<ChemUITextItemType>();
 	const [moduleItemList, setModuleItemList] = useState<ChemUIModuleItemType[]>([]);
-	const { renderComponents, parseJSONList } = useList();
+	const { renderComponents, parseJSONList } = useListHook();
 	const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		setTextValue(e.target.value);
 	};
@@ -56,7 +56,7 @@ const ListPage = () => {
 		setModuleItemList(parseJSONList(result));
 	}, [result]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(Demo3D));
+		setTextValue(JSON.stringify(DemoCSV));
 	}, []);
 
 	const rootRef = useRef<HTMLDivElement>(null);
@@ -80,9 +80,9 @@ const ListPage = () => {
 				</div>
 				<div>
 					<div className="text-lg text-gray-900">可视化</div>
-					<div>
+					<div className="h-[500px]">
 						<List<MyConfig>
-							customScrollParent={rootRef.current as HTMLElement}
+							// customScrollParent={rootRef.current as HTMLElement}
 							dataSource={moduleItemList}
 							toolsData={{
 								moduleTools: defaultModuleTool,

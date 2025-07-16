@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { type ChemUIAppItemType, type ChemUIListItemComponentMap, defaultChemUIListItemComponents } from "#/list/types";
 import { detectMergeItemType } from "#/list/tools.ts";
 
-const useList = () => {
+const useListHook = () => {
 	const parseJSONList = (json: string) => {
 		if (json) {
 			try {
@@ -24,7 +24,7 @@ const useList = () => {
 		return [];
 	};
 
-	const validateObjectList = (obj: never) => {
+	const validateObjectList = (obj: any) => {
 		const ChemUIType = detectMergeItemType(obj);
 		if (ChemUIType !== "UNKNOWN") {
 			if (ChemUIType === "APP") {
@@ -49,4 +49,4 @@ const useList = () => {
 	return { parseJSONList, validateObjectList, renderComponents };
 };
 
-export default useList;
+export { useListHook };

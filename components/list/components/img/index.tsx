@@ -31,7 +31,7 @@ const ImgBox = (props: ChemUIListItemType) => {
 	}, [contentHeight]);
 	if (Array.isArray(path)) {
 		return (
-			<div className="flex flex-wrap gap-x-5 gap-y-2.5">
+			<div className="flex flex-wrap justify-between gap-x-5 gap-y-3">
 				{path.map((item, index) => (
 					<Card key={`${item.name}-${index}`} {...item} />
 				))}
