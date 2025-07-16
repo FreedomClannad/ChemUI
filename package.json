@@ -1,6 +1,6 @@
 {
   "name": "chem-ui",
-  "version": "0.0.9-dev",
+  "version": "0.0.10-dev",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

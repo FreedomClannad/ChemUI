@@ -4722,10 +4722,10 @@ character-reference-invalid@^2.0.0:
   resolved "https://registry.yarnpkg.com/character-reference-invalid/-/character-reference-invalid-2.0.1.tgz#85c66b041e43b47210faf401278abf808ac45cb9"
   integrity sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==
 
-chem-ui@^0.0.9-dev:
-  version "0.0.9-dev"
-  resolved "https://registry.yarnpkg.com/chem-ui/-/chem-ui-0.0.9-dev.tgz#2ca5416e4aa5047b8ebbccae6718627b07557a2d"
-  integrity sha512-0LMpdPt63dynb30GDgUAU9vs5RYoyLQa9h5sMrbD3q1X+HrPDa1HM+YEUFji8+HmjANXgQ0y2vkAShuTmRVqAw==
+chem-ui@^0.0.10-dev:
+  version "0.0.10-dev"
+  resolved "https://registry.yarnpkg.com/chem-ui/-/chem-ui-0.0.10-dev.tgz#6f5d5857e85e13686955f06c8a79f472bab9a2bd"
+  integrity sha512-lHGRCMGQZkaVnq+PboM4v/VDn+bFQnM9iky90m8fbZvyu0xlcceD4VKnGMyjPp9HQnjWmf6ZiB9yIko4aYmnVQ==
   dependencies:
     "@rdkit/rdkit" "^2025.3.3-1.0.0"
     "@remixicon/react" "^4.6.0"

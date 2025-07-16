@@ -5,7 +5,7 @@ import type {
 } from 'chem-ui';
 import { List, defaultDownloadTools, useListHook } from 'chem-ui';
 import 'chem-ui/dist/index.css';
-import React, { type FC, useEffect, useRef, useState } from 'react';
+import React, { type FC, useEffect, useState } from 'react';
 
 const DemoMultipleList = () => {
   const path: { name: string; path: string }[] = [];
@@ -46,15 +46,13 @@ const DemoMultipleImg: FC<{ title: string }> = (props) => {
   const defaultModuleTool = defaultDownloadTools<ChemUIModuleItemType>();
   const defaultTextTool = defaultDownloadTools<ChemUITextItemType>();
   const { renderComponents, validateObjectList } = useListHook();
-  const rootRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setModuleItemList(validateObjectList(Demo) || []);
   }, []);
 
   return (
-    <div className="h-[1000px] overflow-y-auto" ref={rootRef}>
+    <div className="h-[1000px] ">
       <List
-        customScrollParent={rootRef.current as HTMLElement}
         dataSource={moduleItemList}
         toolsData={{
           moduleTools: defaultModuleTool,
