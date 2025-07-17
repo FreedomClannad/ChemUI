@@ -18,12 +18,12 @@ const DemoMarkdown: FC<{ title: string }> = (props) => {
             type: 'MARKDOWN',
             name: 'Markdown的展示名称',
             description: 'Markdown的展示描述',
-            path: 'http://localhost:5500/README.md',
-            download_url: 'http://localhost:5500/README.md',
+            path: 'https://www.alphama.com.cn/other/README.md',
+            download_url: 'https://www.alphama.com.cn/other/README.md',
             format: 'markdown',
           },
         ],
-        download_url: 'http://localhost:5500/README.md',
+        download_url: 'https://www.alphama.com.cn/other/README.md',
       },
     ],
   };
@@ -49,17 +49,6 @@ const DemoMarkdown: FC<{ title: string }> = (props) => {
           textItemTools: defaultTextTool,
         }}
         renderComponents={renderComponents}
-        config={{
-          csv: {
-            smilesOptions: {
-              locateFile: (file: string) => {
-                if (file.endsWith('.wasm'))
-                  return `https://cdn.jsdelivr.net/npm/@rdkit/rdkit@2025.3.3-1.0.0/dist/RDKit_minimal.wasm`;
-                return file;
-              },
-            },
-          },
-        }}
       ></List>
     </div>
   );

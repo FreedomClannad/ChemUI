@@ -18,14 +18,12 @@ const DemoSingleImg: FC<{ title: string }> = (props) => {
             type: 'IMG',
             name: '单图片的展示名称',
             description: '单图片的展示描述',
-            path: 'https://patmap.alphama.com.cn/prod-api/profile/csr/2024/12/13/b1d004f9-5481-45ac-9ebe-2571fd3755a3.svg',
-            download_url:
-              'https://patmap.alphama.com.cn/prod-api/profile/csr/2024/12/13/b1d004f9-5481-45ac-9ebe-2571fd3755a3.svg',
+            path: 'https://www.alphama.com.cn/other/mol-img.svg',
+            download_url: 'https://www.alphama.com.cn/other/mol-img.svg',
             format: 'img',
           },
         ],
-        download_url:
-          'https://patmap.alphama.com.cn/prod-api/profile/csr/2024/12/13/b1d004f9-5481-45ac-9ebe-2571fd3755a3.svg',
+        download_url: 'https://www.alphama.com.cn/other/mol-img.svg',
       },
     ],
   };

@@ -12,7 +12,7 @@ const DemoMultipleList = () => {
   for (let i = 0; i < 20; i++) {
     path.push({
       name: `这是多图片的名称-${i}`,
-      path: 'https://patmap.alphama.com.cn/prod-api/profile/csr/2024/12/13/b1d004f9-5481-45ac-9ebe-2571fd3755a3.svg',
+      path: 'https://www.alphama.com.cn/other/mol-img.svg',
     });
   }
   const files = [
@@ -29,8 +29,7 @@ const DemoMultipleList = () => {
         name: '多图片的Demo名称',
         description: '多图片的Demo内容描述',
         files,
-        download_url:
-          'https://patmap.alphama.com.cn/prod-api/profile/csr/2024/12/13/b1d004f9-5481-45ac-9ebe-2571fd3755a3.svg',
+        download_url: 'https://www.alphama.com.cn/other/mol-img.svg',
       },
     ],
   };

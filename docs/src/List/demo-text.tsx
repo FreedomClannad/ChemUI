@@ -18,12 +18,12 @@ const DemoText: FC<{ title: string }> = (props) => {
             type: 'TEXT',
             name: 'Text的展示名称',
             description: 'Text的展示描述',
-            path: 'http://localhost:5500/test2.txt',
-            download_url: 'http://localhost:5500/test2.txt',
+            path: 'https://www.alphama.com.cn/other/text1.txt',
+            download_url: 'https://www.alphama.com.cn/other/text1.txt',
             format: 'txt',
           },
         ],
-        download_url: 'http://localhost:5500/test2.txt',
+        download_url: 'https://www.alphama.com.cn/other/text1.txt',
       },
     ],
   };
@@ -49,17 +49,6 @@ const DemoText: FC<{ title: string }> = (props) => {
           textItemTools: defaultTextTool,
         }}
         renderComponents={renderComponents}
-        config={{
-          csv: {
-            smilesOptions: {
-              locateFile: (file: string) => {
-                if (file.endsWith('.wasm'))
-                  return `https://cdn.jsdelivr.net/npm/@rdkit/rdkit@2025.3.3-1.0.0/dist/RDKit_minimal.wasm`;
-                return file;
-              },
-            },
-          },
-        }}
       ></List>
     </div>
   );
