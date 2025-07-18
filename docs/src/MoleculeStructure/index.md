@@ -1,4 +1,7 @@
 ---
+group:
+  title: 分子相关
+  order: 1
 title: 分子结构渲染
 order: 3
 ---
