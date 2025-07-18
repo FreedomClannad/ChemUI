@@ -16,10 +16,10 @@ import { useMemo } from "react";
 
 export type ModuleType = {
 	data: ChemUIModuleItemType;
-	options?: ChemUIListItemOptionsType;
+	renderOptions?: ChemUIListItemOptionsType;
+	renderComponents?: ChemUIListItemComponentMap;
 	customScrollParent?: HTMLElement;
 	config?: ChemUIListConfigType;
-	renderComponents?: ChemUIListItemComponentMap;
 	toolsData?: ChemUIListToolsType;
 };
 
@@ -33,7 +33,7 @@ type MergeListItem =
 			data: ChemUITextItemType;
 	  };
 const Module = (props: ModuleType) => {
-	const { data, options, customScrollParent, config, renderComponents, toolsData } = props;
+	const { data, renderOptions, customScrollParent, config, renderComponents, toolsData } = props;
 	const { name, files = [], text = [] } = data;
 	// const toolsRender = <ToolsList<ChemUIModuleItemType> toolsList={chemUIModuleTools} dataItem={data} />;
 	const toolsRender = useMemo(() => {
@@ -66,7 +66,7 @@ const Module = (props: ModuleType) => {
 									<Item
 										item={item.data}
 										renderComponents={renderComponents}
-										options={options}
+										renderOptions={renderOptions}
 										toolsList={toolsData?.itemTools}
 										config={config}
 									/>

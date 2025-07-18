@@ -12,12 +12,12 @@ import { ToolsList } from "#/list/components/tools";
 type Props = {
 	item: ChemUIListItemContentType;
 	renderComponents?: ChemUIListItemComponentMap;
-	options?: ChemUIListItemOptionsType;
+	renderOptions?: ChemUIListItemOptionsType;
 	toolsList?: ChemUIToolsItemType<ChemUIListItemContentType>[];
 	config?: ChemUIListConfigType;
 };
 const Item = (props: Props) => {
-	const { item, renderComponents, options, toolsList = [], config } = props;
+	const { item, renderComponents, renderOptions, toolsList = [], config } = props;
 	const { type = "", name, description } = item;
 	const renderMap: ChemUIListItemComponentMap = useMemo(() => {
 		// 将 renderItem 的键转换为大写
@@ -36,14 +36,14 @@ const Item = (props: Props) => {
 	if (!Component) {
 		return (
 			<Descriptions title={name} description={description} tools={toolsRender}>
-				<OtherComponent {...item} config={config} />
+				<OtherComponent {...item} {...renderOptions} config={config} />
 			</Descriptions>
 		);
 	}
 	return (
 		<>
 			<Descriptions title={name} description={description} tools={toolsRender}>
-				<Component {...item} {...options} config={config} />
+				<Component {...item} {...renderOptions} config={config} />
 			</Descriptions>
 		</>
 	);
