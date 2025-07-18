@@ -2,6 +2,9 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   outputPath: 'docs-dist',
+  theme: {
+    path: './.dumi/theme',
+  },
   themeConfig: {
     name: 'ChemUI',
   },

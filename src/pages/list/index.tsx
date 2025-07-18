@@ -21,7 +21,7 @@ import {
 import { defaultDownloadTools } from "#/list/default";
 type MyConfig = {
 	test: string;
-} & CSVConfigType;
+};
 const ListPage = () => {
 	const [textValue, setTextValue] = useState<string>("");
 	const [textValueError, setTextValueError] = useState("");

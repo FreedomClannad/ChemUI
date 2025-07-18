@@ -1,3 +1,5 @@
+import type { CSVConfigType } from "#/list/types/csv.ts";
+
 export * from "./csv";
 import type { FC, ReactNode } from "react";
 import {
@@ -50,6 +52,8 @@ export type ChemUITextItemType = {
 export type ChemUIConfig = Record<string, unknown>;
 
 export type ChemUIListConfigType = ChemUIConfig;
+
+export type defaultChemUIConfig = CSVConfigType;
 
 export type ChemUIListItemContentType = {
 	type: ChemUIListTypeEnum | string;

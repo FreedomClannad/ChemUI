@@ -5,6 +5,8 @@ nav:
 group:
   title: 介绍
   order: -1
+title: 组件总览
+order: 0
 ---
 
 # 组件总览

@@ -4,9 +4,9 @@ hero:
   description: ChemUI 组件文档
   actions:
     - text: 什么是ChemUI
-      link: /
+      link: /guide
     - text: 快速开始
-      link: /
+      link: /components/components
     - text: GitHub
       link: https://github.com/FreedomClannad/ChemUI
 features:

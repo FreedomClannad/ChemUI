@@ -1,8 +1,8 @@
-import type { ChemUIConfig, ChemUIListConfigType, ChemUIModuleItemType } from "#/list/types";
+import type { ChemUIConfig, ChemUIListConfigType, ChemUIModuleItemType, defaultChemUIConfig } from "#/list/types";
 import { Module, type ModuleType } from "#/list/module.tsx";
 import { useRef } from "react";
 
-type ListConfig<Config extends ChemUIConfig> = ChemUIListConfigType & Config;
+type ListConfig<Config extends ChemUIConfig> = ChemUIListConfigType & Config & defaultChemUIConfig;
 
 type Props<Config extends ChemUIConfig> = Omit<ModuleType, "data"> & {
 	dataSource: ChemUIModuleItemType[];
