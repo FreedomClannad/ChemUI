@@ -1,7 +1,7 @@
 ---
 group:
   title: 分子相关
-  order: 1
+  order: 2
 title: List 定制列表
 order: 1
 ---
@@ -65,15 +65,41 @@ order: 1
 ### 多图片组件展示
 <code src="./demo-multiple-img.tsx"></code>
 
+## 常用方法
+### default
+```tsx | pure
+import type {
+  ChemUIListItemType,
+  ChemUIModuleItemType,
+  ChemUITextItemType,
+} from 'chem-ui';
+
+import { defaultDownloadTools } from 'chem-ui';
+
+
+// 这里封装了下载的工具的ReactNode，后期和可以自己需要自行封装
+const defaultItemTool = defaultDownloadTools<ChemUIListItemType>();
+const defaultModuleTool = defaultDownloadTools<ChemUIModuleItemType>();
+const defaultTextTool = defaultDownloadTools<ChemUITextItemType>();
+
+```
+
+### useListHook
+[详细请查看](uselisthook)
+```tsx | pure
+import { useListHook } from 'chem-ui';
+const { renderComponents, validateObjectList } = useListHook();
+```
+
 ## API
-| 参数               | 说明                                                                                      | 类型                                                     | 默认值 | 版本 |
-| ------------------ |-----------------------------------------------------------------------------------------|--------------------------------------------------------| ------ | ---- |
-| dataSource         | 数据                                                                                      | [ChemUIModuleItemType[]](#chemuimoduleitemtype)        | []     |      |
-| config             | 自定义模块的配置项，包含默认的配置以及用户自定义的扩展配置（Config）                                                   | [ListConfig](#listconfig)                              |        |      |
+| 参数               | 说明                                                                                     | 类型                                                     | 默认值 | 版本 |
+| ------------------ |----------------------------------------------------------------------------------------|--------------------------------------------------------| ------ | ---- |
+| dataSource         | 数据                                                                                     | [ChemUIModuleItemType[]](#chemuimoduleitemtype)        | []     |      |
+| config             | 自定义模块的配置项，包含默认的配置以及用户自定义的扩展配置（Config）                                                  | [ListConfig](#listconfig)                              |        |      |
 | renderComponents   | 列表类型到组件的映射表，根据 ChemUIListTypeEnum 渲染对应的组件，每个组件都接收 ChemUIListItemType 类型，同时可以需求自定义相应的Map | Record<string, FC<[ChemUIListItemType](#test)>>        |        |      |
-| renderOptions      | 渲染组件的option                                                                             | [ChemUIListItemOptionsType](#chemuilistitemoptionstype) |        |      |
-| customScrollParent | 控制滚动轴对象                                                                                 | HTMLElement                                            |        |      |
-| toolsData          | 工具栏的对象                                                                                  | [ChemUIListToolsType](#chemuilisttoolstype)            |        |      |
+| renderOptions      | 渲染组件的option                                                                            | [ChemUIListItemOptionsType](#chemuilistitemoptionstype) |        |      |
+| customScrollParent | 控制滚动轴对象                                                                                | HTMLElement                                            |        |      |
+| toolsData          | 工具栏的对象(用户按照相应的格式可以自定义工具栏)                                                              | [ChemUIListToolsType](#chemuilisttoolstype)            |        |      |
 
 ## 类型
 ### ChemUIModuleItemType

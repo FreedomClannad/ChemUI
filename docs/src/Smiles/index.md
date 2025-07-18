@@ -1,7 +1,6 @@
 ---
 group:
   title: 分子相关
-  order: 1
 title: Smiles渲染
 order: 3
 ---
