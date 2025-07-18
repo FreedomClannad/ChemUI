@@ -3,7 +3,7 @@ group:
   title: 分子相关
   order: 1
 title: Smiles渲染
-order: 2
+order: 3
 ---
 # Smiles结构渲染
 
@@ -11,6 +11,7 @@ order: 2
 
 ```tsx
 import { Smiles } from 'chem-ui';
+import 'chem-ui/dist/index.css';
 export default () =>
   <Smiles
     smiles="c1ccccc1"
@@ -26,15 +27,11 @@ export default () =>
 ```
 
 ## API
-| 参数           | 说明          | 类型               | 默认值 | 版本 |
-|--------------| ------------- | ------------------ | ------ | ---- |
-| id           | 需要给绑定id  | string             |        |      |
-| smiles       | smiles        | string             |        |      |
-| onError      | 错误回调      | (error) =>void     |        |      |
-| options      | RDKit参数设置 | RDKitLoaderOptions |        |      |
 
-### 类型 
-#### RDKitLoaderOptions
-| 参数       | 说明                                       | 类型             | 默认值 | 版本 |
-| ---------- | ------------------------------------------ | ---------------- | ------ | ---- |
-| locateFile | 服务器上 RDKit 模块 .wasm 文件的可选路径。 | (file) => string |        |      |
+| 参数           | 说明          | 类型                                                          | 默认值 | 版本 |
+|--------------| ------------- |-------------------------------------------------------------| ------ | ---- |
+| id           | 需要给绑定id  | string                                                      |        |      |
+| smiles       | smiles        | string                                                      |        |      |
+| onError      | 错误回调      | (error) =>void                                              |        |      |
+| options      | RDKit参数设置 | [RDKitLoaderOptions](molecule-structure#rdkitloaderoptions) |        |      |
+

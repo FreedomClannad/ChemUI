@@ -3,7 +3,7 @@ group:
   title: 分子相关
   order: 1
 title: 分子结构渲染
-order: 3
+order: 2
 ---
 # MoleculeStructure 分子结构渲染
 
@@ -29,18 +29,19 @@ export default () =>
 
 ## API
 
-| 参数         | 说明          | 类型               | 默认值 | 版本 |
-| ------------ | ------------- | ------------------ | ------ | ---- |
-| id           | 需要给绑定id  | string             |        |      |
-| width        | 宽度          | number             | 100    |      |
-| height       | 高度          | number             | 100    |      |
-| structure    | smiles        | string             |        |      |
-| subStructure | 截取的smiles  | string             |        |      |
-| drawingDelay | 延迟渲染时间  | number             |        |      |
-| onError      | 错误回调      | (error) =>void     |        |      |
-| options      | RDKit参数设置 | RDKitLoaderOptions |        |      |
+| 参数         | 说明          | 类型                      | 默认值 | 版本 |
+| ------------ | ------------- |-------------------------| ------ | ---- |
+| id           | 需要给绑定id  | string                  |        |      |
+| width        | 宽度          | number                  | 100    |      |
+| height       | 高度          | number                  | 100    |      |
+| structure    | smiles        | string                  |        |      |
+| subStructure | 截取的smiles  | string                  |        |      |
+| drawingDelay | 延迟渲染时间  | number                  |        |      |
+| onError      | 错误回调      | (error) =>void          |        |      |
+| options      | RDKit参数设置 | [RDKitLoaderOptions](#rdkitloaderoptions) |        |      |
 
 ### 类型 
+
 #### RDKitLoaderOptions
 
 | 参数       | 说明                                       | 类型             | 默认值 | 版本 |

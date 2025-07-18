@@ -18,6 +18,24 @@ order: 1
 
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
+## 简单示例
+```tsx
+import { Smiles } from 'chem-ui';
+import 'chem-ui/dist/index.css';
+export default () =>
+  <Smiles
+    smiles="c1ccccc1"
+    options={{
+      locateFile: (file) => {
+        // 这里根据自己的服务器以及开发进行修改，同时版本号也可以根据自己的需要进行修改
+        if (file.endsWith('.wasm'))
+          return `https://cdn.jsdelivr.net/npm/@rdkit/rdkit@2025.3.3-1.0.0/dist/RDKit_minimal.wasm`;
+        return file;
+      },
+    }}
+  />
+```
+
 ## 谁在使用
 
 可以查看[Sciminer](https://sciminer.protonunfold.com/)
