@@ -1,9 +1,10 @@
 import type { ChemUIConfig, ChemUIListConfigType, ChemUIModuleItemType, defaultChemUIConfig, ModuleRest } from "#/list/types";
-import { Module } from "#/list/module1";
+
 import { useMemo, useRef } from "react";
 import { Virtuoso } from "react-virtuoso";
 import { arrayTransform } from "#/list/tools.ts";
 import { cn } from "#/utils";
+import { Module } from "#/list/module";
 
 type ListConfig<Config extends ChemUIConfig> = ChemUIListConfigType & Config & defaultChemUIConfig;
 
