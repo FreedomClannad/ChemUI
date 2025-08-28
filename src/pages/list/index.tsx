@@ -16,7 +16,8 @@ import {
 	DemoMarkdown,
 	DemoSingleImg,
 	DemoTable,
-	DemoText
+	DemoText,
+	MoreData
 } from "@/pages/list/demo";
 import { defaultDownloadTools } from "#/list/default";
 type MyConfig = {
@@ -56,13 +57,13 @@ const ListPage = () => {
 		setModuleItemList(parseJSONList(result));
 	}, [result]);
 	useEffect(() => {
-		setTextValue(JSON.stringify(DemoCSV));
+		setTextValue(JSON.stringify(MoreData));
 	}, []);
 
-	const rootRef = useRef<HTMLDivElement>(null);
+	const rootRef = useRef<HTMLDivElement>(undefined);
 	return (
 		<div className="h-[100vh]">
-			<div className="h-full overflow-y-auto px-10" ref={rootRef}>
+			<div className="h-full overflow-y-auto px-10">
 				<div>输入内容</div>
 				<div className="mt-2 flex h-[400px] w-full gap-10">
 					<div className="w-1/2">
@@ -80,9 +81,9 @@ const ListPage = () => {
 				</div>
 				<div>
 					<div className="text-lg text-gray-900">可视化</div>
-					<div className="h-[500px]">
+					<div ref={rootRef} className="h-[500px] overflow-y-auto">
 						<List<MyConfig>
-							// customScrollParent={rootRef.current as HTMLElement}
+							customScrollParent={rootRef.current as HTMLElement}
 							dataSource={moduleItemList}
 							toolsData={{
 								moduleTools: defaultModuleTool,
@@ -100,7 +101,7 @@ const ListPage = () => {
 									}
 								}
 							}}
-						></List>
+						/>
 					</div>
 				</div>
 			</div>

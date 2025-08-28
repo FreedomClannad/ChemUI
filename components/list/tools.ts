@@ -1,5 +1,7 @@
 import { has, isObject } from "lodash-es";
 import type { ChemUIAppItemType, ChemUIModuleItemType } from "#/list/types";
+import type { ModuleKind, ModuleType, RendererMapPartial, RendererOf } from "./types";
+import type { JSX } from "react";
 export const isChemUIModuleArrayType = (obj: unknown): obj is ChemUIModuleItemType[] => {
 	return (
 		Array.isArray(obj) &&
@@ -30,3 +32,43 @@ export const detectMergeItemType = (obj: unknown): "APP" | "MODULE" | "UNKNOWN" 
 	if (isChemUIModuleArrayType(obj)) return "MODULE";
 	return "UNKNOWN";
 };
+
+/** 工厂：通过回调 register 统一收集各类型的 renderer（插件可各自调用） */
+export function createRenderers(
+	build: (register: <T extends ModuleKind>(type: T, renderer: RendererOf<T>) => void) => void
+): RendererMapPartial {
+	const map: RendererMapPartial = {};
+	const register = <T extends ModuleKind>(type: T, renderer: RendererOf<T>) => {
+		map[type] = renderer as any;
+	};
+	build(register);
+	return map;
+}
+
+/** 合并多个 renderer 映射（后者会覆盖前者的同名 type） */
+export function mergeRenderers(...sources: RendererMapPartial[]): RendererMapPartial {
+	return Object.assign({}, ...sources);
+}
+
+/** 按类型安全获取 renderer，若缺失则使用 fallback */
+export function makeRendererGetter(map: RendererMapPartial, fallback: (props: ModuleType) => JSX.Element) {
+	return <T extends ModuleKind>(type: T): RendererOf<T> => {
+		const r = map[type];
+		return (r ?? (fallback as any)) as RendererOf<T>;
+	};
+}
+
+export function arrayTransform(arr: ChemUIModuleItemType[]): ModuleType[] {
+	const list: ModuleType[] = [];
+	console.log(arr);
+	arr.forEach(item => {
+		const { name, files = [], text = [], description, options, download_url } = item;
+		list.push({
+			type: "header",
+			data: { name, description, download_url, options }
+		});
+		list.push(...files.map(item => ({ type: "file", data: item }) as const));
+		list.push(...text.map(item => ({ type: "text", data: item }) as const));
+	});
+	return list;
+}

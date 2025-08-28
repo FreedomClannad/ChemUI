@@ -14,7 +14,6 @@ const Markdown = (props: ChemUIListItemContentType) => {
 	};
 
 	useReadFile(validPath, processData);
-
 	return (
 		<div>
 			<MarkdownComp content={content} />
