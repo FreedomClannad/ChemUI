@@ -1,7 +1,7 @@
 import { memo } from "react";
 type MoleculeData = {
-	name: string;
-	img: string;
+	title: string;
+	image: string;
 };
 
 type MoleculeNodeProps = {
@@ -9,13 +9,13 @@ type MoleculeNodeProps = {
 };
 const MoleculeNode = memo((props: MoleculeNodeProps) => {
 	const { data } = props;
-	const { name, img } = data;
+	const { title, image } = data;
 	return (
 		<div>
 			<div></div>
-			<img className="max-h-[80px] max-w-[150px]" src={img} alt={name} />
+			<img className="max-h-[80px] max-w-[150px]" src={image} alt={title} />
 			<div className="flex justify-center py-[10px] text-sm leading-5">
-				<span>{name}</span>
+				<span>{title}</span>
 			</div>
 		</div>
 	);

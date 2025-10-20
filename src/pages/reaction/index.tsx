@@ -1,8 +1,11 @@
-import { type NamedExoticComponent, useMemo } from "react";
+import { type NamedExoticComponent, useEffect, useMemo, useState } from "react";
 import { ReactReaction } from "#/reaction/react-reaction.tsx";
 import type { Node } from "#/reaction/type.ts";
 import { IconNode, type IconNodeProps, MoleculeNode, type MoleculeNodeProps } from "#/reaction/nodes";
-import { ReactionDemoList } from "@/pages/reaction/demo.ts";
+import { ReactionDemoCompoundList, ReactionDemoList } from "@/pages/reaction/demo.ts";
+import { ReactionCard } from "#/reaction-edit/card.tsx";
+import { ReactionEditList } from "#/reaction-edit";
+import { useReactionEdit } from "#/reaction-edit/hook/use-reaction-edit.ts";
 
 const createList = (): Node[] => {
 	const list: Node[] = [];
@@ -28,10 +31,37 @@ const ReactionPage = () => {
 	const nodes = useMemo(() => {
 		return ReactionDemoList;
 	}, []);
+
+	const { compoundList, setCompoundList, addCompound, removeCompound } = useReactionEdit();
+	useEffect(() => {
+		setCompoundList(ReactionDemoCompoundList);
+	}, []);
+
+	const addClick = () => {
+		addCompound({
+			id: "11",
+			title: "新化合物",
+			image:
+				"https://patmap.alphama.com.cn/resource/alm-app-platform/pdf/upload/2025/04/09/e475cd3ac00342bab01a4fd15a33acb7.pdf_position_pngs/59_448_937_503_1007.png"
+		});
+	};
 	return (
-		<div className="max-w-[600px]">
-			<ReactReaction nodes={nodes} nodeTypes={nodeTypes} />;
-		</div>
+		<>
+			<div className="max-w-[600px]">
+				<ReactReaction nodes={nodes} nodeTypes={nodeTypes} />
+			</div>
+			<div className="max-w-[600px]">
+				<ReactionEditList
+					compounds={compoundList}
+					addInfo={{
+						title: "名称",
+						content: "添加"
+					}}
+					addClick={addClick}
+					removeClick={removeCompound}
+				/>
+			</div>
+		</>
 	);
 };
 export default ReactionPage;
