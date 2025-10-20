@@ -11,7 +11,7 @@ export const getRootRouter = (): PageRouteObject[] => {
 	return [
 		{
 			path: "/",
-			children: [{ index: true, element: LazyLoad(lazy(() => import("@/pages/list"))) }, ...routerModules]
+			children: [{ index: true, element: LazyLoad(lazy(() => import("@/pages/reaction"))) }, ...routerModules]
 		}
 	];
 };
