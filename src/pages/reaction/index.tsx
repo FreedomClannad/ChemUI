@@ -3,7 +3,7 @@ import { ReactReaction } from "#/reaction/react-reaction.tsx";
 import type { Node } from "#/reaction/type.ts";
 import { IconNode, type IconNodeProps, MoleculeNode, type MoleculeNodeProps } from "#/reaction/nodes";
 import { ReactionDemoCompoundList, ReactionDemoList } from "@/pages/reaction/demo.ts";
-import { ReactionCard } from "#/reaction-edit/card.tsx";
+import { ReactionArrowCard, ReactionCard } from "#/reaction-edit/card.tsx";
 import { ReactionEditList } from "#/reaction-edit";
 import { useReactionEdit } from "#/reaction-edit/hook/use-reaction-edit.ts";
 
@@ -60,6 +60,9 @@ const ReactionPage = () => {
 					addClick={addClick}
 					removeClick={removeCompound}
 				/>
+			</div>
+			<div className="h-[60px] w-[120px]">
+				<ReactionArrowCard />
 			</div>
 		</>
 	);
