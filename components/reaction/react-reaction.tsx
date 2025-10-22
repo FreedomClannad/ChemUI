@@ -1,15 +1,28 @@
 import type { Node, ReactReactionType } from "#/reaction/type";
-
-const ReactReaction = (props: ReactReactionType) => {
-	const { nodes, nodeTypes } = props;
+import { cn } from "#/utils";
+import { useWheel } from "#";
+type Props = {
+	className?: string;
+} & ReactReactionType;
+const ReactReaction = (props: Props) => {
+	const { className, nodes, nodeTypes } = props;
+	const { containerRef } = useWheel();
 	const render = (node: Node) => {
 		const Component = nodeTypes?.[node.type ?? ""];
 		if (!Component) {
 			return <div key={node.id}>{node.id}</div>; // fallback
 		}
-		return <Component key={node.id} {...node} />;
+		return <Component key={node.id} {...node} className="flex-shrink-0" />;
 	};
-	return <div className="flex w-full items-center overflow-x-auto">{nodes.map(render)}</div>;
+	return (
+		<div
+			ref={containerRef}
+			style={{ scrollbarWidth: "none" }}
+			className={cn("flex w-full items-center overflow-x-auto overscroll-contain", className)}
+		>
+			{nodes.map(render)}
+		</div>
+	);
 };
 
 export { ReactReaction };

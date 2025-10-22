@@ -8,7 +8,7 @@ export type Node<T = any, U extends string | undefined = string | undefined> = {
 export type NodeProps<T = any> = Pick<Node<T>, "type" | "data">;
 
 export type NodeTypes<T = any> = {
-	[key: string]: ComponentType<NodeProps<T>>;
+	[key: string]: ComponentType<NodeProps<T> & { className?: string }>;
 };
 
 export type ReactReactionType = {

@@ -5,13 +5,14 @@ type MoleculeData = {
 };
 
 type MoleculeNodeProps = {
+	className?: string;
 	data: MoleculeData;
 };
 const MoleculeNode = memo((props: MoleculeNodeProps) => {
-	const { data } = props;
+	const { className, data } = props;
 	const { title, image } = data;
 	return (
-		<div>
+		<div className={className}>
 			<div></div>
 			<img className="max-h-[80px] max-w-[150px]" src={image} alt={title} />
 			<div className="flex justify-center py-[10px] text-sm leading-5">

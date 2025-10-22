@@ -1,14 +1,15 @@
 import { memo } from "react";
 import { RiAddLargeLine, RiArrowRightLine } from "@remixicon/react";
-
+import { cn } from "#/utils";
 type IconData = {
 	type: string;
 };
 type IconNodeProps = {
+	className?: string;
 	data: IconData;
 };
 const IconNode = memo((props: IconNodeProps) => {
-	const { data } = props;
+	const { className, data } = props;
 	const { type } = data;
 	const icon = () => {
 		switch (type) {
@@ -20,7 +21,7 @@ const IconNode = memo((props: IconNodeProps) => {
 				return null;
 		}
 	};
-	return <div className="px-[30px]">{icon()}</div>;
+	return <div className={cn("px-[30px]", className)}>{icon()}</div>;
 });
 
 export type { IconNodeProps };
