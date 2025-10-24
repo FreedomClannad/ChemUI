@@ -5,7 +5,7 @@ const addNodesKey = (nodes: any[]): Node[] => {
 	return nodes.map(node => {
 		return {
 			...node,
-			key: getShortId()
+			uid: getShortId()
 		};
 	});
 };

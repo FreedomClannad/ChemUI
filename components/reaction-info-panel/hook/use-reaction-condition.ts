@@ -7,7 +7,7 @@ const useReactionCondition = () => {
 	// 化学反应反应条件
 	const [molCondition, setMolCondition] = useState<Node[]>([]);
 	const removeMolCondition = (node: Node) => {
-		setMolCondition(molCondition.filter(item => item.key !== node.key));
+		setMolCondition(molCondition.filter(item => item.uid !== node.uid));
 	};
 	// 化学反应的
 	return { conditionDescription, setConditionDescription, molCondition, setMolCondition, removeMolCondition };

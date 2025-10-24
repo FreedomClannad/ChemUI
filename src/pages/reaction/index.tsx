@@ -13,7 +13,7 @@ const ReactionPage = () => {
 		const n_list: ReactionInfo[] = [];
 		for (let i = 0; i < 10; i++) {
 			n_list.push({
-				id: getShortId(),
+				uid: getShortId(),
 				reaction: addNodesKey(ReactionDemoList),
 				condition: ReactionConditionInfoDemo,
 				isEdit: false,
@@ -23,14 +23,14 @@ const ReactionPage = () => {
 		setReactionInfoList(n_list);
 	}, []);
 
-	const handleEditChange = (key: string, state: boolean) => {
+	const handleEditChange = (uid: string, state: boolean) => {
 		// 检测是否有其他项正在编辑
-		const isOtherEdit = reactionInfoList.some(item => item.key !== key && item.isEdit);
+		const isOtherEdit = reactionInfoList.some(item => item.uid !== uid && item.isEdit);
 		if (isOtherEdit) {
 			alert("请先保存或取消其他项的编辑");
 			return;
 		}
-		changeEditStatus(key, state);
+		changeEditStatus(uid, state);
 	};
 
 	console.log(reactionInfoList);
@@ -41,7 +41,7 @@ const ReactionPage = () => {
 					<div key={index} className="mt-5 border-t border-red-600">
 						<ReactionInfoPanel
 							{...reactionInfo}
-							onEditChange={state => handleEditChange(reactionInfo.key, state)}
+							onEditChange={state => handleEditChange(reactionInfo.uid, state)}
 							onSubmit={info => {
 								console.log(info);
 								changeReactionInfo(info);

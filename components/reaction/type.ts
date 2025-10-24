@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
 export type Node<T = any, U extends string | undefined = string | undefined> = {
-	key: string;
+	uid: string;
 	data: T;
 	type?: U;
 };

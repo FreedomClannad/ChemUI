@@ -12,6 +12,7 @@ import { useReactionEdit } from "#/reaction-info-panel/hook/use-reaction-edit.ts
 import { useReactionCondition } from "#/reaction-info-panel/hook/use-reaction-condition.ts";
 import { getShortId } from "#/utils";
 import { addNodesKey } from "#/reaction/toos.ts";
+import { AutoResizeTextarea } from "#/reaction-info-panel/auto-resize-textarea.tsx";
 
 const iconNode: NamedExoticComponent<IconNodeProps> = IconNode;
 const moleculeNode: NamedExoticComponent<MoleculeNodeProps> = MoleculeNode;
@@ -80,7 +81,7 @@ const ReactionInfoPanel = (props: Props) => {
 
 	const reactantsAdd = () => {
 		addReactantsNode({
-			key: getShortId(),
+			uid: getShortId(),
 			data: {
 				title: `${nodes.length + 1}}`,
 				image:
@@ -92,7 +93,7 @@ const ReactionInfoPanel = (props: Props) => {
 
 	const productsAdd = () => {
 		addProductsNode({
-			key: getShortId(),
+			uid: getShortId(),
 			data: {
 				title: `${nodes.length + 1}}`,
 				image:
@@ -109,6 +110,7 @@ const ReactionInfoPanel = (props: Props) => {
 	const handleSubmit = () => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const { onSubmit, onEditChange, ...info } = props;
+		console.log(info);
 		const newInfo = {
 			...info,
 			condition: {
@@ -118,6 +120,7 @@ const ReactionInfoPanel = (props: Props) => {
 			reaction: mergeNodes(reactantsNodes, arrowNode, productsNodes),
 			isEdit: false
 		} as ReactionInfo;
+		console.log(newInfo);
 		onSubmit(newInfo);
 	};
 
@@ -160,8 +163,8 @@ const ReactionInfoPanel = (props: Props) => {
 					</div>
 					<div className="min-w-0 flex-1">
 						<div className="">
-							<input
-								className="h-[44px] w-full rounded-[4px] bg-[#F5F5F5] px-[10px] placeholder-[#999999] focus:outline-none"
+							<AutoResizeTextarea
+								className="min-h-[44px] w-full resize-none overflow-hidden rounded-[4px] bg-[#F5F5F5] p-[10px] placeholder-[#999999] focus:outline-none"
 								placeholder="请输入反应条件"
 								value={conditionDescription}
 								onChange={e => {

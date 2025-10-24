@@ -6,7 +6,7 @@ const useReactionEdit = () => {
 		setCompoundNode([...compoundNode, node]);
 	};
 	const removeCompoundNode = (node: Node) => {
-		setCompoundNode(compoundNode.filter(item => item.key !== node.key));
+		setCompoundNode(compoundNode.filter(item => item.uid !== node.uid));
 	};
 	return {
 		compoundNode,

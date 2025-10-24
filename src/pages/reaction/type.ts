@@ -1,7 +1,7 @@
 import type { ReactionConditionInfo } from "#/reaction-info-panel/type.ts";
 
 type ReactionInfo = {
-	key: string;
+	uid: string;
 	reaction: any[];
 	condition: ReactionConditionInfo;
 	isEdit: boolean;

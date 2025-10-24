@@ -5,12 +5,12 @@ const useReaction = () => {
 	const [reactionInfoList, setReactionInfoList] = useState<ReactionInfo[]>([]);
 	// 单个化学反应改变的事件
 	const changeReactionInfo = (info: ReactionInfo) => {
-		setReactionInfoList(prev => prev.map(item => (item.key === info.key ? info : item)));
+		setReactionInfoList(prev => prev.map(item => (item.uid === info.uid ? info : item)));
 	};
 
 	// 编辑状态改变事件
-	const changeEditStatus = (key: string, state: boolean) => {
-		setReactionInfoList(prev => prev.map(item => (item.key === key ? { ...item, isEdit: state } : item)));
+	const changeEditStatus = (uid: string, state: boolean) => {
+		setReactionInfoList(prev => prev.map(item => (item.uid === uid ? { ...item, isEdit: state } : item)));
 	};
 
 	//
