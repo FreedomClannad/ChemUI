@@ -1,6 +1,5 @@
 import { cn } from "#/utils";
 import type { ReactNode, MouseEvent } from "react";
-import { RiArrowRightLongLine } from "@remixicon/react";
 
 type ReactionCardProps = {
 	image: string;
@@ -63,10 +62,14 @@ const ReactionAddCard = ({ title = "", className = "", content = "Add", titleCla
 	);
 };
 
-const ReactionArrowCard = () => {
+type ReactionArrowCardProps = {
+	content?: ReactNode;
+};
+const ReactionArrowCard = (props: ReactionArrowCardProps) => {
+	const { content } = props;
 	return (
 		<div className="flex h-full w-full items-center justify-center rounded-[4px] border border-dashed bg-[#FBFDFF]">
-			<RiArrowRightLongLine />
+			{content}
 		</div>
 	);
 };

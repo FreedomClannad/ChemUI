@@ -1,5 +1,6 @@
+import type { Node } from "#/reaction/type";
 export type ReactionConditionInfo = {
 	state: "success" | "error";
 	description: string | undefined;
-	images: string[];
+	mol_condition: Node[];
 };

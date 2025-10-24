@@ -1,27 +1,21 @@
 import { ReactionAddCard, ReactionCard } from "#/reaction-edit/card.tsx";
 import type { MouseEvent } from "react";
-import type { Compound } from "#/reaction-edit/type.ts";
 import { DeleteButton } from "#/reaction-edit/tools.tsx";
-
+import type { Node } from "#/reaction/type";
 type ReactionEditProps = {
-	compounds: Compound[];
+	nodes: Node[];
 	addClick: (e: MouseEvent) => void;
-	removeClick: (compound: Compound) => void;
+	removeClick: (node: Node) => void;
 	addInfo?: {
 		title: string;
 		content: string;
 	};
 };
 
-const ReactionEditList = ({
-	compounds,
-	addClick,
-	removeClick,
-	addInfo = { title: "名称", content: "添加" }
-}: ReactionEditProps) => {
+const ReactionEditList = ({ nodes, addClick, removeClick, addInfo = { title: "名称", content: "添加" } }: ReactionEditProps) => {
 	return (
-		<div className="flex flex-wrap gap-5">
-			{compounds.map((compound, index) => (
+		<div className="grid grid-cols-3 gap-5 [grid-auto-rows:130px]">
+			{nodes.map((node, index) => (
 				<ReactionCard
 					key={`reaction-edit_${index}`}
 					className="h-[130px] w-[130px]"
@@ -30,12 +24,12 @@ const ReactionEditList = ({
 						<div className="flex w-full justify-end p-1">
 							<DeleteButton
 								onClick={() => {
-									removeClick(compound);
+									removeClick(node);
 								}}
 							/>
 						</div>
 					}
-					{...compound}
+					{...node.data}
 				/>
 			))}
 			<ReactionAddCard className="h-[130px] w-[130px]" {...addInfo} onClick={addClick} />

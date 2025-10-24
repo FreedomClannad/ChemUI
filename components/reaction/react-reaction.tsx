@@ -10,9 +10,9 @@ const ReactReaction = (props: Props) => {
 	const render = (node: Node) => {
 		const Component = nodeTypes?.[node.type ?? ""];
 		if (!Component) {
-			return <div key={node.id}>{node.id}</div>; // fallback
+			return <div key={node.key}>{node.key}</div>; // fallback
 		}
-		return <Component key={node.id} {...node} className="flex-shrink-0" />;
+		return <Component {...node} className="flex-shrink-0" />;
 	};
 	return (
 		<div
