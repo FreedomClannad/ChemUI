@@ -179,7 +179,7 @@ const ReactionInfoPanel = (props: Props) => {
 					<button className="rounded-[4px] bg-[#f5f5f5] px-[30px] py-[6px] text-[#999999]" onClick={handleCancel}>
 						取消
 					</button>
-					<button className="rounded-[4px] bg-[#98C1FA] px-[30px] py-[6px] text-[#FFFFFF]" onClick={handleSubmit}>
+					<button className="rounded-[4px] bg-[#3183F5] px-[30px] py-[6px] text-[#FFFFFF]" onClick={handleSubmit}>
 						提交
 					</button>
 				</div>
