@@ -7,7 +7,7 @@ import { getShortId } from "#/utils";
 import { addNodesKey } from "#/reaction/toos.ts";
 
 const ReactionPage = () => {
-	const { reactionInfoList, setReactionInfoList, changeEditStatus } = useReaction();
+	const { reactionInfoList, setReactionInfoList, changeEditStatus, changeReactionInfo } = useReaction();
 
 	useEffect(() => {
 		const n_list: ReactionInfo[] = [];
@@ -16,7 +16,8 @@ const ReactionPage = () => {
 				id: getShortId(),
 				reaction: addNodesKey(ReactionDemoList),
 				condition: ReactionConditionInfoDemo,
-				isEdit: false
+				isEdit: false,
+				state: "success"
 			} as unknown as ReactionInfo);
 		}
 		setReactionInfoList(n_list);
@@ -41,8 +42,9 @@ const ReactionPage = () => {
 						<ReactionInfoPanel
 							{...reactionInfo}
 							onEditChange={state => handleEditChange(reactionInfo.key, state)}
-							onSubmit={() => {
-								console.log("提交");
+							onSubmit={info => {
+								console.log(info);
+								changeReactionInfo(info);
 							}}
 						/>
 					</div>

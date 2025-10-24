@@ -5,7 +5,7 @@ import { IconNode, type IconNodeProps, MoleculeNode, type MoleculeNodeProps } fr
 import { RiArrowRightLongLine, RiEditBoxLine, RiFindReplaceLine } from "@remixicon/react";
 import { ReactionCondition, ReactionConditionImgCardList } from "#/reaction-info-panel/reaction-condition.tsx";
 import type { ReactionInfo } from "@/pages/reaction/type.ts";
-import { filterNodes } from "#/reaction-info-panel/tools.ts";
+import { filterNodes, findArrowNode, mergeNodes } from "#/reaction-info-panel/tools.ts";
 import { ReactionArrowCard, ReactionEditList } from "#/reaction-edit";
 import { Tag } from "./tag";
 import { useReactionEdit } from "#/reaction-info-panel/hook/use-reaction-edit.ts";
@@ -22,11 +22,11 @@ const nodeTypes = {
 
 type Props = ReactionInfo & {
 	onEditChange: (state: boolean) => void;
-	onSubmit: () => void;
+	onSubmit: (info: ReactionInfo) => void;
 };
 
 const ReactionInfoPanel = (props: Props) => {
-	const { reaction, condition, isEdit, onEditChange } = props;
+	const { reaction, condition, isEdit, state, onEditChange } = props;
 	const [nodes, setNodes] = useState<Node[]>([]);
 	const [arrowNode, setArrowNode] = useState<Node | null>(null);
 	// reactantsCompounds
@@ -54,6 +54,10 @@ const ReactionInfoPanel = (props: Props) => {
 		}
 		//TODO 转换数据格式, 这里可以增加一个函数, 把 data 转换为 Node[] 格式，
 		setNodes(reaction);
+		const arrow = findArrowNode(nodes);
+		if (arrow) {
+			setArrowNode(arrow);
+		}
 	}, [reaction]);
 
 	useEffect(() => {
@@ -66,6 +70,11 @@ const ReactionInfoPanel = (props: Props) => {
 			// 初始化condition的内容
 			setConditionDescription(condition.description || "");
 			setMolCondition(addNodesKey(condition.mol_condition || []));
+		} else {
+			const arrow = findArrowNode(nodes);
+			if (arrow) {
+				setArrowNode(arrow);
+			}
 		}
 	}, [isEdit]);
 
@@ -97,7 +106,20 @@ const ReactionInfoPanel = (props: Props) => {
 		onEditChange(false);
 	};
 
-	const handleSubmit = () => {};
+	const handleSubmit = () => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const { onSubmit, onEditChange, ...info } = props;
+		const newInfo = {
+			...info,
+			condition: {
+				description: conditionDescription,
+				mol_condition: molCondition
+			},
+			reaction: mergeNodes(reactantsNodes, arrowNode, productsNodes),
+			isEdit: false
+		} as ReactionInfo;
+		onSubmit(newInfo);
+	};
 
 	if (isEdit) {
 		return (
@@ -165,7 +187,11 @@ const ReactionInfoPanel = (props: Props) => {
 	return (
 		<div>
 			<div className="flex gap-x-2">
-				<ReactReaction nodes={nodes} nodeTypes={nodeTypes} className="py-5" />
+				<div className="min-w-0 flex-1">
+					{state === "error" && <Tag title="异常反应" color="red" className="w-[72px] text-center" />}
+
+					<ReactReaction nodes={nodes} nodeTypes={nodeTypes} className="cursor-pointer py-5" />
+				</div>
 				<div className="flex-shrink-0 py-5">
 					<div className="cursor-pointer rounded-[4px] bg-[#F5F5F5] p-1" onClick={() => onEditChange(true)}>
 						<RiEditBoxLine className="h-[14px] w-[14px]" />

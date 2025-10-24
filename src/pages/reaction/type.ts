@@ -5,6 +5,7 @@ type ReactionInfo = {
 	reaction: any[];
 	condition: ReactionConditionInfo;
 	isEdit: boolean;
+	state: "success" | "error";
 };
 
 export type { ReactionInfo };

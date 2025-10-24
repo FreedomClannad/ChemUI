@@ -1,13 +1,9 @@
-import { useMemo } from "react";
 import type { ReactionConditionInfo } from "#/reaction-info-panel/type.ts";
 import { Tag } from "#/reaction-info-panel/tag.tsx";
 import { useWheel } from "#";
 import type { Node } from "#/reaction/type";
 import { DeleteButton } from "#/reaction-edit/tools.tsx";
-type TagInfo = {
-	title: string;
-	color: "blue" | "red";
-};
+
 type Props = {
 	info: ReactionConditionInfo;
 };
@@ -39,21 +35,10 @@ const ReactionConditionImgCardList = (props: ReactionConditionImgCardProps) => {
 	);
 };
 const ReactionCondition = ({ info }: Props) => {
-	const tagInfo: TagInfo = useMemo(() => {
-		if (info.state === "success")
-			return {
-				title: "反应条件",
-				color: "blue"
-			};
-		return {
-			title: "异常反应",
-			color: "red"
-		};
-	}, [info]);
 	return (
 		<div className="border-t">
 			<div className="mt-[14px]">
-				<Tag title={tagInfo.title} color={tagInfo.color} />
+				<Tag title="反应条件" />
 			</div>
 			{info.description && (
 				<div className="mt-[10px] text-[14px] leading-[24px]">

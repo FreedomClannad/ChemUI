@@ -4,7 +4,9 @@ import type { ReactionInfo } from "@/pages/reaction/type";
 const useReaction = () => {
 	const [reactionInfoList, setReactionInfoList] = useState<ReactionInfo[]>([]);
 	// 单个化学反应改变的事件
-	const changeReactionInfo = () => {};
+	const changeReactionInfo = (info: ReactionInfo) => {
+		setReactionInfoList(prev => prev.map(item => (item.key === info.key ? info : item)));
+	};
 
 	// 编辑状态改变事件
 	const changeEditStatus = (key: string, state: boolean) => {
